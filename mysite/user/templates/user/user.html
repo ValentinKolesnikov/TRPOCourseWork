@@ -1,0 +1,29 @@
+{% extends "mainApp/wrapper.html" %}
+
+{% block title %}
+    {% if user.id %}{{userprofile.username}}{% else %}Авторизуйтесь{% endif %}
+{% endblock %}
+
+{% block content %}
+    {% if error %}
+    <h2>Пользователь удален или не создан</h2>
+    {% else %}
+    {% if user.id %}
+    <h2>{{userprofile.username}}</h2>
+    <div class="row">
+        <div class="col">
+            <p>Фамилия: {{userprofile.first_name}}</p>
+            <p>Имя: {{userprofile.last_name}}</p>
+        </div>
+        <div class="col">
+            <p>Дата регистрации: {{userprofile.date_joined|date:"d.m.Y"}} в {{userprofile.date_joined|date:"H:i:s"}}</p>
+            <P>Последний вход: {{userprofile.last_login|date:"d.m.Y"}} в {{userprofile.last_login|date:"H:i:s"}}</P>
+            <P>Ресторан: {% if rest %}<a href="/restaurant/{{rest.id}}">{{rest.name}}</a>{% elif userprofile == user %}<a href="/restaurant/create/">Создать</a>{% else %}---{% endif %}</P>
+        </div>
+    </div>
+    {% else %}
+    <h2>Авторизуйтесь</h2>
+    {% endif %}
+    {% endif %}
+
+{% endblock %}

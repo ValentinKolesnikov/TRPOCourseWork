@@ -1,0 +1,51 @@
+{% extends "mainApp/wrapper.html" %}
+
+{% block title %}
+EZtable
+{% endblock %}
+
+{% block content %}
+<div class="describe-section">
+    <div class="describe-section__mask"></div>
+    <h1 class="describe-section__headline"><span class="highlight__fist-color">TaBook</span> - это лучший сайт по бронированию столиков. <br> На сайте зарегистрированно <span class="highlight__fist-color">12345</span> различных заведений в <span class="highlight__fist-color">23</span> городах</h1>
+</div>
+
+<section class="creator width-limit">
+<h2 class="creator__headline">Создатели сайта</h2>
+<div class="creator__wrapper">
+    <div class="creator__card">
+        <div class="creator__valik-avatar"></div>
+        <h3 class="creator__name">Валентин Колесников</h3>
+    </div>
+    <div class="creator__card">
+        <div class="creator__oleg-avatar"></div>
+        <h3 class="creator__name">Олег Федосеев</h3>
+    </div>
+</div>
+</section>
+
+<section class="recommend">
+<h2 class="recommend__headline page-headline">Интерестные сайты</h2>
+<div class="recommend__wrapper width-limit">
+    <div class="recommend__card card">
+        <!-- {%  load staticfiles %} -->
+        <div class="recommend__image card__image"><img src="{% static 'images/brain.jpg'%}" alt=""></div>
+        <div class="recommend__name card__name"><a href="">Развитие памяти</a></div>
+        <div class="recommend__descr card__descr">Это сайт, где вы сможете найти лучшие игры, которые сделают вас гениями как Олег.</div>
+        <a href="#" class="recommend__link btn">Перейти на сайт</a>
+    </div>
+    <div class="recommend__card card">
+        <div class="recommend__image card__image"><img src="{% static 'images/meetup.jpg'%}" alt=""></div>
+        <div class="recommend__name card__name"><a href="">Online-мероприятия</a></div>
+        <div class="recommend__descr card__descr">Это сайт, где вы сможете найти лучшие мероприятия, на которых будет Пак-Бог</div>
+        <a href="#" class="recommend__link btn">Перейти на сайт</a>
+    </div>
+    <div class="recommend__card card">
+        <div class="recommend__image card__image"><img src="{% static 'images/light.jpg'%}" alt=""></div>
+        <div class="recommend__name card__name"><a href="">Полет светлячков</a></div>
+        <div class="recommend__descr card__descr">Это сайт накотором вы сможете увидеть как летают светлячки и улитеть с ними в Белыничи.</div>
+        <a href="#" class="recommend__link btn">Перейти на сайт</a>
+    </div>
+</div>
+</section>
+{% endblock %}

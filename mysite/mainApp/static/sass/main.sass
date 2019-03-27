@@ -1,0 +1,390 @@
+@import _colors
+*
+	margin: 0
+	padding: 0
+html
+	font-size: 10px
+
+body
+	font-size: 1.5rem
+	font-family: 'Avenir Next Cyr', sans-serif
+	color: $header
+
+button,
+button:active,
+button:focus,
+input,
+input:active,
+    outline: none;
+
+.width-limit
+	width: 90% !important
+	margin: 0 auto
+	
+
+
+ul
+	list-style: none
+
+a
+	text-decoration: none
+	color: #000
+
+.btn
+	display: inline-block
+	border: none
+	background: $first-main
+	color: $white-font
+	font-weight: bold
+	padding: 10px 25px
+	text-align: center
+	border-radius: 25px
+	font-size: 1.5rem
+
+.top-header
+	width: 100%
+	height: 50px
+	z-index: 12
+	top: 0
+	background-color: $header
+	position: fixed
+	&__wrapper
+		display: flex
+		justify-content: flex-start
+	&__burger
+		color: #ffffff
+		font-size: 2rem
+		line-height: 50px
+		margin-left: 2rem
+		position: absolute
+		display: none
+	&__login
+		transition: 0.2s ease all
+		position: absolute
+		right: 15px
+		& i
+			color: darken($white-font, 50%)	
+		&:hover
+			& i
+				color: $white-font
+				transition: 0.2s ease all
+	&__search
+		line-height: 50px
+		position: absolute
+		right: 10%
+	&__login
+		color: $white-font
+		font-size: 2rem
+		line-height: 50px
+		margin-right: 20px
+		font-weight: 300
+	// &__logo
+	// 	width: 220px
+	// 	height: 70px
+	// 	background: url('../images/logo.jpg') 50% 0 no-repeat
+	// 	background-size: cover
+	// 	position: absolute
+	// 	top: 0
+	// 	left: 50%
+	// 	transform: translate(-50%, 0)
+	// 	// box-shadow: 0 10px 28px rgba(0,0,0,0.7), 0 10px 10px rgba(0,0,0,0.7)
+	// 	border-radius: 2px
+	
+.social
+	margin-right: 2rem
+	&__list
+		display: flex
+		line-height: 50px
+	&__item
+		margin-right: 2rem
+	&__link
+		color: $white-font
+		font-size: 1.8rem
+
+.nav-bar
+	&__list
+		display: flex
+		line-height: 50px
+		&:first-child
+			margin-left: 0
+	&__item
+		font-size: 1.7rem
+		margin-left: 2rem
+	&__link
+		color: $white-font
+		font-weight: 100
+
+.underline-hover
+	&::before
+			content: ''
+			display: block
+			position: relative
+			top: 40px
+			height: 1px
+			width: 100%
+			background-color: $white-font
+			transform: scale(0)
+			transition: 0.2s all ease
+	&:hover::before
+		transform: scale(1)
+		transition: 0.2s all ease
+
+.describe-section
+	height: 100vh
+	background: url('../images/oraig.jpg') 50% 50% no-repeat fixed
+	background-size: cover
+	&__headline
+		position: absolute
+		top: 30%
+		font-weight: 350
+		margin-left: 10%
+		color: $white-font
+		font-size: 2.5rem
+		width: 40%
+		line-height: 4rem
+	&__mask
+		width: 100%
+		height: 100%
+		background-color: rgba(0, 0, 0, 0.35)
+
+.highlight
+	&__fist-color
+		color: $first-main
+		font-weight: 700
+	&__second-color
+		color: $header
+		font-weight: 700
+
+	
+
+.search
+
+	&__input
+		width: 200px
+		height: 30px
+		background-color: lighten($header, 10%)
+		border-radius: 16px
+		border: none
+		padding: 1.5px 10px 1.5px 15px
+		padding-right: 30px
+		font-size: 1.6rem
+		transition: 0.1s ease all
+		&::-webkit-input-placeholder
+			opacity: 1
+			transition: opacity 0.3s ease
+		&::-moz-placeholder
+			opacity: 1
+			transition: opacity 0.3s ease
+		&:-moz-placeholder
+			opacity: 1
+			transition: opacity 0.3s ease
+		&:-ms-input-placeholder
+			opacity: 1
+			transition: opacity 0.3s ease
+		&:focus::-webkit-input-placeholder
+			opacity: 0
+			transition: opacity 0.3s ease
+		&:focus::-moz-placeholder
+			opacity: 0
+			transition: opacity 0.3s ease
+		&:focus:-moz-placeholder
+			opacity: 0
+			transition: opacity 0.3s ease
+		&:focus:-ms-input-placeholder
+			opacity: 0
+			transition: opacity 0.3s ease
+		&:focus
+			transition: 0.1s ease all
+			background-color: $white-font
+
+	&__btn
+		background-color: transparent
+		border: none
+		font-size: 18px
+		color: $header
+		position: relative
+		right: 27px
+		top: 1px
+		
+.main-footer
+	min-height: 200px
+	background-color: $header
+	&__nav
+		
+	&__category
+		
+	&__item
+		margin-bottom: 10px
+	&__link
+		color: $gray-font
+		font-size: 1.6rem
+		transition: 0.2s all ease
+		&:hover
+			transition: 0.2s all ease
+			color: $white-font
+	&__wrapper
+		display: flex
+		justify-content: space-around
+		padding: 4rem 0
+			
+.list
+	&__headline
+		font-size: 2rem
+		color: $white-font
+		text-transform: uppercase
+.contacts
+	&__phone-num
+		display: inline-block
+		font-size: 3rem
+		color: $gray-font
+		vertical-align: middle
+		&:hover
+			transition: 0.2s all ease
+			color: $white-font
+			cursor: pointer
+		&-icon
+			display: inline-block
+			margin-right: 1.5rem
+	&__address
+		display: inline-block
+		margin-top: 2rem
+		color: $gray-font
+		vertical-align: middle
+		&-icon
+			display: inline-block
+			margin-right: 1rem
+.category-icon
+	display: inline-block
+	margin-right: 0.7rem
+
+/************************Restaurants List**********************/ 
+
+.rest-selection
+	&__headline
+		@extend .page-headline
+
+/************************Creators**********************/ 
+
+.creator
+	&__wrapper
+		padding: 50px 0
+		display: flex
+		justify-content: space-around
+	&__valik-avatar
+		height: 130px
+		width: 130px
+		background: url('../images/valikav-1.png') 50% 50% no-repeat
+		background-size: contain
+	&__oleg-avatar
+		height: 130px
+		width: 130px
+		background: url('../images/olegav.png') 50% 50% no-repeat
+		background-size: contain
+	&__card
+		display: flex
+		align-items: center
+	&__name
+		margin-left: 10px
+		font-size: 2.5rem
+	&__headline
+		@extend .page-headline
+
+.page-headline
+	font-size: 3.3rem
+	text-align: center
+	margin-top: 3rem
+	letter-spacing: 0.5rem
+	text-decoration: underline 
+
+
+
+.card
+	width: 350px
+	&__image img
+		width: 100%
+		height: 175px
+	&__name
+		font-size: 2.3rem
+	
+
+.recommend
+	padding: 50px
+	&__headline
+		margin-bottom: 50px
+	&__wrapper
+		display: flex
+		justify-content: center
+		flex-wrap: wrap
+		
+	&__card
+		background: $header
+		color: $white-font
+		margin: 10px
+		display: flex
+		flex-direction: column
+	&__link
+		color: $white-font
+		margin: 15px auto
+		
+	&__name
+		font-size: 2.5rem
+		text-align: center
+		margin-top: 20px
+		& a
+			color: $white-font
+	&__descr
+		text-align: center
+		line-height: 22px
+		padding: 1.5rem 4rem
+		color: darken($white-font, 30%)
+	&__image img
+		
+////////////////////////////////////////////ROTATE///////////////////////////////
+.rotate-shadows
+  width: 60px
+  height: 60px
+  position: relative
+  &:after
+    content: ""
+    border-radius: 50%
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    transform-origin: center center
+  &:before
+    content: ""
+    border-radius: 50%
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    transform-origin: center center
+    box-shadow: inset 0 20px 0 rgba(0, 250, 250, 0.6), inset 20px 0 0 rgba(0, 200, 200, 0.6), inset 0 -20px 0 rgba(0, 150, 200, 0.6), inset -20px 0 0 rgba(0, 200, 250, 0.6)
+    animation: rotate-before 2s -0.5s linear infinite
+  &:after
+    box-shadow: inset 0 20px 0 rgba(250, 250, 0, 0.6), inset 20px 0 0 rgba(250, 200, 0, 0.6), inset 0 -20px 0 rgba(250, 150, 0, 0.6), inset -20px 0 0 rgba(250, 100, 0, 0.6)
+    animation: rotate-after 2s -0.5s linear infinite
+
+@keyframes rotate-after
+  0%
+    transform: rotateZ(0deg) scaleX(1) scaleY(1)
+
+  50%
+    transform: rotateZ(180deg) scaleX(0.82) scaleY(0.95)
+
+  100%
+    transform: rotateZ(360deg) scaleX(1) scaleY(1)
+
+
+@keyframes rotate-before
+  0%
+    transform: rotateZ(0deg) scaleX(1) scaleY(1)
+
+  50%
+    transform: rotateZ(-180deg) scaleX(0.95) scaleY(0.85)
+
+  100%
+    transform: rotateZ(-360deg) scaleX(1) scaleY(1)

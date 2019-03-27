@@ -1,0 +1,24 @@
+{% extends "mainApp/wrapper.html" %}
+
+{% block title %}
+Создание ресторана
+{% endblock %}
+
+{% block content %}
+<div>
+    <form action="/restaurant/create/" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p><label for="name">Название заведения</label>
+        <input type="text" name="name" id="name"></p>
+        <p><label for="description">Описание</label>
+        <input type="text" name="description" id="description"></p>
+        <p><label for="phone">Телефон</label>
+        <input type="text" name="phone" id="phone" maxlength="12"></p>
+        <p><label for="worktime">Время работы</label>
+        <input type="text" name="worktime" id="worktime"></p>
+        <p><label for="photo">Фотография</label>
+        <input type="file" name="photo" id="photo"></p>
+        <input class="button" type="submit" value="Создать">        
+    </form>
+</div>
+{% endblock %}

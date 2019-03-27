@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %} {% endblock %}</title>
+    {%  load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'js/bootstrap.min.js' %}" type="text/js">
+
+</head>
+<body>
+    <div class="container">
+        <br>
+        <!-- Панель навигации -->
+        <nav class="navbar  navbar-expand-lg navbar-dark bg-dark">
+        <a href="/admin/" class="navbar-brand">Project</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"  aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a href="/" class="nav-link">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+             <a href="/catalog/" class="nav-link">Catalog</a>
+            </li>
+           </ul>
+           {% block auth %}
+           {% include "mainApp/includes/login_panel.html" %}
+           {% endblock %}
+          </div>
+         </nav>
+         <div class="jumbotron">
+         {% block content %}
+
+         {% endblock %}
+        </div>
+      
+        <hr class="my-4">
+    </div>
+</body>
+      
+</html>

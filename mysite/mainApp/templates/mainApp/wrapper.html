@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>{% block title %} {% endblock %}</title>
+	{%  load staticfiles %}
+	
+	<link rel="stylesheet" href="{% static 'sass/main.css' %}" >
+	<link rel="stylesheet" href="{% static 'sass/login-form.css' %}">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+ crossorigin="anonymous">
+	<link rel="stylesheet" href="{% static 'fonts/Roboto/roboto.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'additions/slick-1.8.1/slick-1.8.1/slick/slick.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'additions/slick-1.8.1/slick-1.8.1/slick/slick-theme.css' %}" />
+	<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+	<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900&subset=latin,latin-ext'>
+	<link rel="stylesheet" href="{% static 'fonts/AvenirNextCyr/stylesheet.css' %}">
+	
+
+	
+</head>
+<body>
+	<div class="login-form">
+		
+			<div class="materialContainer">	
+				<div class="box">
+				<div class="title">LOGIN</div>
+					<form action="">
+						<div class="input">
+							<label for="name">Username</label>
+							<input type="text" name="name" id="name">
+							<span class="spin"></span>
+						</div>
+
+						<div class="input">
+							<label for="pass">Password</label>
+							<input type="password" name="pass" id="pass">
+							<span class="spin"></span>
+						</div>
+
+						<div class="button login">
+							<button type="submit"><span>GO</span> <i class="fa fa-check"></i></button>
+						</div>
+						
+					</form>
+					<a href="" class="pass-forgot">Forgot your password?</a>
+
+			</div>
+
+			<div class="overbox">
+				<div class="material-button alt-2"><span class="shape"></span></div>
+
+				<div class="title">REGISTER</div>
+					<form action="">
+						<div class="input">
+							<label for="regname">Username</label>
+							<input type="text" name="regname" id="regname">
+							<span class="spin"></span>
+						</div>
+
+						<div class="input">
+							<label for="regpass">Password</label>
+							<input type="password" name="regpass" id="regpass">
+							<span class="spin"></span>
+						</div>
+
+						<div class="input">
+							<label for="reregpass">Repeat Password</label>
+							<input type="password" name="reregpass" id="reregpass">
+							<span class="spin"></span>
+						</div>
+
+						<div class="button">
+							<button type="submit"><span>NEXT</span></button>
+						</div>
+					</form>
+			</div>
+			</div>
+	<div class="mask"></div>
+	</div>
+   
+	<header class="top-header">
+		<div class="top-header__wrapper width-limit">
+			<a href="" class="top-header__burger burger"><i class="fas fa-bars"></i></a>
+			<div class="top-header__logo logo"><a href="/">
+					<div class="rotate-shadows"></div>
+				</a></div>
+			<div class="top-header__nav-bar nav-bar">
+				<ul class="nav-bar__list list">
+					<li class="nav-bar__item item">
+						<a href="/catalog" class="nav-bar__link underline-hover">Рестораны</a>
+					</li>
+					<li class="nav-bar__item item">
+						<a href="#" class="nav-bar__link underline-hover">Контакты</a>
+					</li>	
+				</ul>
+			</div>
+			<div class="top-header__search search">
+				<form action="">
+					<input placeholder="Поиск" class="search__input" type="text">
+					<button class="search__btn" type="submit"><i class="fas fa-search"></i></button>
+				</form>
+			</div>
+			<a class="top-header__login"><i class="fas fa-user"></i></a>
+		</div>
+	</header>
+
+	<div class="content-section">
+		{% block content %}
+
+         {% endblock %}
+	</div>
+
+	
+	<footer class="main-footer">
+		<div class="main-footer__wrapper width-limit">
+			<div class="main-footer__logo">
+				
+			</div>
+			<div class="main-footer__nav">
+				<ul class="main-footer__list list">
+					<li class="main-footer__item">
+						<a class="main-footer__link list__headline" href="">ToBook</a>
+					</li>
+					<li class="main-footer__item item">
+						<a href="#" class="main-footer__link"><i class="fas fa-search-plus category-icon"></i>Расширенный поиск</a>
+					</li>
+					<li class="main-footer__item item">
+						<a href="#" class="main-footer__link"><i class="fas fa-star category-icon"></i>Популярные заведения</a>
+					</li>
+					<li class="main-footer__item item">
+						<a href="#" class="main-footer__link"><i class="fas fa-book-reader category-icon"></i>О нас</a>
+					</li>
+				</ul>
+			</div>
+			<div class="main-footer__category">
+				<ul class="main-footer__list list">
+					<li class="main-footer__item">
+						<a class="main-footer__link list__headline" href="">Катерогиии</a>
+					</li>
+
+					<li class="main-footer__item item">
+						<a href="#" class="main-footer__link"><i class="fas fa-pizza-slice category-icon"></i>Пиццерии</a>
+					</li>
+					<li class="main-footer__item item">
+						<a href="#" class="main-footer__link"><i class="fas fa-concierge-bell category-icon"></i>Рестораны</a>
+					</li>
+					<li class="main-footer__item item">
+						<a href="#" class="main-footer__link"><i class="fas fa-cheese category-icon"></i>Кондитерские</a>
+					</li>
+					<li class="main-footer__item item">
+						<a href="#" class="main-footer__link"><i class="fas fa-glass-martini-alt category-icon"></i>Кафе-бары</a>
+					</li>
+					<li class="main-footer__item item">
+						<a href="#" class="main-footer__link"><i class="fas fa-microphone-alt category-icon"></i>Караоке клубы</a>
+					</li>
+					<li class="main-footer__item item">
+						<a href="#" class="main-footer__link"><i class="fas fa-hamburger category-icon"></i>Бургерные</a>
+					</li>
+				</ul>
+			</div>
+			<div class="main-footer__contacts contacts">
+				<span class="contacts__phone-num"><i class="fas fa-phone contacts__phone-num-icon"></i>+7 (499) 123-45-67</span><br>
+				<span class="contacts__address"><i class="fas fa-map-marker-alt contacts__address-icon"></i>Республика Беларусь, г. Могилев, ул. Ленинская 24А</span>
+			</div>
+		</div>
+	</footer>
+
+
+
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="{% static 'js/script.js'%}"></script>
+	<script src="{% static 'js/login-form.js'%}"></script>
+</body>
+</html>
