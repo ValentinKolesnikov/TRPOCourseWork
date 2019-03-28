@@ -46,6 +46,10 @@
   text-align: center;
 }
 
+.rest-card__headline a {
+  color: #fff;
+}
+
 .rest-card__description {
   text-align: center;
   color: #b3b3b3;
@@ -55,12 +59,27 @@
 .rest-card__btn {
   margin: 20px auto;
   border: none;
-  background: #00E533;
+  background: #82B8F6;
   color: #fff;
   font-weight: bold;
   padding: 10px 25px;
   text-align: center;
-  border-radius: 25px;
   font-size: 1.5rem;
+}
+
+.rest-card__rating a {
+  color: #fff;
+}
+
+.rest-card__rating {
+  margin-top: 10px;
+}
+
+.page-headline, .rest-selection__headline {
+  font-size: 3.3rem;
+  text-align: center;
+  margin-top: 3rem;
+  letter-spacing: 0.5rem;
+  text-decoration: underline;
 }
 /*# sourceMappingURL=search-page.css.map */

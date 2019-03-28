@@ -1,6 +1,6 @@
 .describe-section {
   height: 100vh;
-  background: url("/media/home_image/oraig.jpg") 50% 50% no-repeat fixed;
+  background: url("../images/oraig.jpg") 50% 50% no-repeat fixed;
   background-size: cover;
 }
 
@@ -43,14 +43,14 @@
 .creator__valik-avatar {
   height: 130px;
   width: 130px;
-  background: url("/media/home_image/valikav-1.png") 50% 50% no-repeat;
+  background: url("../images/valikav-1.png") 50% 50% no-repeat;
   background-size: contain;
 }
 
 .creator__oleg-avatar {
   height: 130px;
   width: 130px;
-  background: url("/media/home_image/olegav.jpg") 50% 50% no-repeat;
+  background: url("../images/olegav.png") 50% 50% no-repeat;
   background-size: contain;
 }
 

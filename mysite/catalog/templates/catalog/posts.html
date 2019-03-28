@@ -29,7 +29,7 @@
               <div class="rest-card__text">{{rest.description}}</div>
               <div class="rest-card__rating">
                 <a href="/restaurant/like/{{rest.id}}"
-                  {% for like in likes %}{% if like.restaurant.id == rest.id %}class="text-success"
+                  {% for like in likes %}{% if like.restaurant.id == rest.id %}class="like-added"
                   {% endif %}{% endfor %}><i class="fas fa-heart"></i>  {{rest.mark}}</a>
                 </div>
             </div>
