@@ -52,7 +52,7 @@
   font-size: 34px;
   font-weight: 700;
   letter-spacing: 2px;
-  color: #00E533;
+  color: #82B8F6;
   position: relative;
 }
 
@@ -63,7 +63,7 @@
   position: absolute;
   top: 0;
   left: -50px;
-  background: #00E533;
+  background: #82B8F6;
 }
 
 .input {
@@ -189,7 +189,7 @@
 }
 
 .input .spin {
-  background: #00E533;
+  background: #82B8F6;
   z-index: 4;
   width: 0;
 }
@@ -251,7 +251,7 @@
 
 .button button {
   background-color: #fff;
-  color: #00E533;
+  color: #82B8F6;
   border: none;
 }
 
@@ -287,8 +287,8 @@
 }
 
 .button.login button:hover {
-  color: #00E533;
-  border-color: #00E533;
+  color: #82B8F6;
+  border-color: #82B8F6;
 }
 
 .button button {
@@ -309,7 +309,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: #00E533;
+  background: #82B8F6;
   border-radius: 50%;
 }
 
@@ -355,7 +355,7 @@
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  background: #00E533;
+  background: #82B8F6;
   position: absolute;
   top: 40px;
   right: -70px;

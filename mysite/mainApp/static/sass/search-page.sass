@@ -4,6 +4,7 @@
 	&__headline
 		font-size: 3rem
 		margin-bottom: 30px
+		@extend .page-headline
 	&__list
 		display: flex
 		flex-wrap: wrap
@@ -23,6 +24,8 @@
 	&__headline
 		margin: 10px 0
 		text-align: center
+		& a
+			color: $white-font
 	&__description
 		text-align: center
 		color: darken($white-font, 30%)
@@ -35,8 +38,13 @@
 		font-weight: bold
 		padding: 10px 25px
 		text-align: center
-		border-radius: 25px
+		
 		font-size: 1.5rem
+	&__rating a
+		color: red
+	&__rating
+		margin-top: 10px
+		
 		
 
 

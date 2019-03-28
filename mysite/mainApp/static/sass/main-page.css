@@ -1,1 +1,132 @@
-/* No CSS *//*# sourceMappingURL=main-page.css.map */
+.describe-section {
+  height: 100vh;
+  background: url("/media/home_image/oraig.jpg") 50% 50% no-repeat fixed;
+  background-size: cover;
+}
+
+.describe-section__headline {
+  position: absolute;
+  top: 35%;
+  font-weight: 350;
+  margin: 0 10%;
+  color: #fff;
+  font-size: 4.5rem;
+  text-align: center;
+  line-height: 7rem;
+}
+
+.describe-section__mask {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.highlight__fist-color {
+  color: #82B8F6;
+  font-weight: 700;
+}
+
+.highlight__second-color {
+  color: #21262C;
+  font-weight: 700;
+}
+
+.creator__wrapper {
+  padding: 50px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.creator__valik-avatar {
+  height: 130px;
+  width: 130px;
+  background: url("/media/home_image/valikav-1.png") 50% 50% no-repeat;
+  background-size: contain;
+}
+
+.creator__oleg-avatar {
+  height: 130px;
+  width: 130px;
+  background: url("/media/home_image/olegav.jpg") 50% 50% no-repeat;
+  background-size: contain;
+}
+
+.creator__card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.creator__name {
+  margin-left: 10px;
+  font-size: 2.5rem;
+}
+
+.page-headline, .creator__headline {
+  font-size: 3.3rem;
+  text-align: center;
+  margin-top: 3rem;
+  letter-spacing: 0.5rem;
+  text-decoration: underline;
+}
+
+.recommend {
+  padding: 50px;
+}
+
+.recommend__headline {
+  margin-bottom: 50px;
+}
+
+.recommend__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.recommend__card {
+  background: #21262C;
+  color: #fff;
+  margin: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.recommend__link {
+  color: #fff;
+  margin: 15px auto;
+}
+
+.recommend__name {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.recommend__name a {
+  color: #fff;
+}
+
+.recommend__descr {
+  text-align: center;
+  line-height: 22px;
+  padding: 1.5rem 4rem;
+  color: #b3b3b3;
+}
+/*# sourceMappingURL=main-page.css.map */
