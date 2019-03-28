@@ -3,6 +3,7 @@ from django.db.models import Max
 from catalog.models import Restaurant, Comment, Like
 from django.contrib.auth.models import User
 from django.middleware import csrf
+from loginsystem.forms import RegisterForm
 from django.http import HttpResponse, HttpResponseRedirect
 
 def restaurant(request, id=None):
@@ -10,6 +11,7 @@ def restaurant(request, id=None):
         return render(request,'restaurant/restaurant.html',{'error':True})
     else:
         args={}
+        args['form'] = RegisterForm()
         try:
             args['rest'] = Restaurant.objects.get(id=id)
         except:
@@ -56,6 +58,7 @@ def create(request):
     if not request.user.is_authenticated:
         return redirect('/auth/login/')
     args = {}
+    args['form'] = RegisterForm()
     args['csrf_token'] = csrf.get_token(request)
     if request.POST:
         name = request.POST.get('name','')

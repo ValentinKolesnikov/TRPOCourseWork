@@ -6,6 +6,7 @@ from django.middleware import csrf
 
 def login(request):
     args = {}
+    args['form'] = RegisterForm()
     args['csrf_token'] = csrf.get_token(request)
     if request.POST:
         username = request.POST.get('username','')
