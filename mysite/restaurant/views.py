@@ -72,7 +72,7 @@ def create(request):
         rest = Restaurant.objects.latest('id')
         photo.name = str(rest.id)+'.jpg'
         rest.photo = photo
-        rest.update()
+        rest.save()
         return redirect('/user/'+str(owner))
     return render_to_response('restaurant/create.html', args)
 

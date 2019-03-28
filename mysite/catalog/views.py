@@ -10,7 +10,7 @@ def post(request):
     t = time.time()
     object_list = Restaurant.objects.all().order_by("-mark")
     print(time.time()-t)
-    paginator = Paginator(object_list, 4)
+    paginator = Paginator(object_list, 6)
 
     page = request.GET.get('page')
     try:
