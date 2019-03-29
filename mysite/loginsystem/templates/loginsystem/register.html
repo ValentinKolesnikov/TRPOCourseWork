@@ -5,12 +5,5 @@
 {% endblock %}
 
 {% block content %}
-<div>
-    <form action="/auth/register/" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input class="button" type="submit" value="Зарегаться">
-        {{ form.error_list }}
-    </form>
-</div>
+
 {% endblock %}

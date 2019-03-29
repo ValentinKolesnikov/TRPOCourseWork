@@ -1,5 +1,5 @@
 .rest-selection {
-  margin-top: 70px;
+  top: 60px;
 }
 
 .rest-selection__headline {
@@ -78,7 +78,8 @@
 .page-headline, .rest-selection__headline {
   font-size: 3.3rem;
   text-align: center;
-  margin-top: 3rem;
+  position: relative;
+  top: 30px;
   letter-spacing: 0.5rem;
   text-decoration: underline;
 }

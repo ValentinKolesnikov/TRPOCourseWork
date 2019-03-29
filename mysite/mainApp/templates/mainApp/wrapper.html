@@ -27,40 +27,29 @@
 		
 			<div class="materialContainer">	
 				<div class="box">
-				<div class="title">LOGIN</div>
+				<div class="title">ВХОД</div>
 				<form action="/auth/login/" method="POST">
 					{% csrf_token %}
 						<div class="input">
-							<label for="username">Username</label>
+							<label for="username">Логин</label>
 							<input type="text" name="username" id="username">
 						</div>
 
 						<div class="input">
-							<label for="password">Password</label>
+							<label for="password">Пароль</label>
 							<input type="password" name="password" id="password">
 						</div>
 
 						<div class="button login">
-							<button type="submit"><span>GO</span> <i class="fa fa-check"></i></button>
+							<button type="submit"><span>Войти</span> <i class="fa fa-check"></i></button>
 						</div>
 						
 					</form>
-					<a href="" class="pass-forgot">Forgot your password?</a>
+					<a href="/auth/register/" class="pass-forgot">Регистрация</a>
 
 			</div>
 
-			<div class="overbox">
-				<div class="material-button alt-2"><span class="shape"></span></div>
-
-				<div class="title">REGISTER</div>
-					<form action="/auth/register/" method="POST">
-						<div class="input">
-							{% csrf_token %}
-							{{ form }}
-							<input class="button" type="submit" value="Зарегаться">
-						</div>
-					</form>
-			</div>
+			
 			</div>
 	<div class="mask"></div>
 	</div>
@@ -158,7 +147,7 @@
 	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	<script src="{% static 'js/login-form.js' %}"></script>
-	<script src="{% static 'js/resetform.js' %}"></script>
+	<!-- <script src="{% static 'js/resetform.js' %}"></script> -->
 
 </body>
 </html>
