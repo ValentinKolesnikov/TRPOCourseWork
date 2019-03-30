@@ -5,9 +5,12 @@
 {% endblock %}
 
 {% block content %}
-<div>
+<div class="register">
+    <div class="register-box">
+        <h1>Новое заведение</h1>
     <form action="/restaurant/create/" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
+        
         <p><label for="name">Название заведения</label>
         <input type="text" name="name" id="name"></p>
         <p><label for="description">Описание</label>
@@ -18,7 +21,8 @@
         <input type="text" name="worktime" id="worktime"></p>
         <p><label for="photo">Фотография</label>
         <input type="file" name="photo" id="photo"></p>
-        <input class="button" type="submit" value="Создать">        
+        <input class="register__btn btn" type="submit" value="Создать">
     </form>
+    </div>
 </div>
 {% endblock %}
