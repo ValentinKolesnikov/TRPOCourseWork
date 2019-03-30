@@ -5,8 +5,8 @@
 {% endblock %}
 
 {% block content %}
-<div class="register">
-    <div class="register-box">
+<div class="create register">
+    <div class="create-box register-box">
         <h1>Новое заведение</h1>
     <form action="/restaurant/create/" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
@@ -14,7 +14,7 @@
         <p><label for="name">Название заведения</label>
         <input type="text" name="name" id="name"></p>
         <p><label for="description">Описание</label>
-        <input type="text" name="description" id="description"></p>
+        <textarea type="text" rows="10" name="description" id="description"></textarea></p>
         <p><label for="phone">Телефон</label>
         <input type="text" name="phone" id="phone" maxlength="12"></p>
         <p><label for="worktime">Время работы</label>
