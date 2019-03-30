@@ -58,3 +58,27 @@
 	text-decoration: underline 
 	
 
+.pagination
+	display: inline-block
+	position: relative
+	left: 50%
+	transform: translateX(-50%)
+	margin: 20px 0
+	&__next-page
+		margin-left: 10px
+	&__prev-page
+		margin-right: 10px
+	&__next-page, &__prev-page
+		font-weight: 600
+		display: inline-block
+		padding: 5px 7px
+		border: 2px solid $header
+		transition: 0.2s all ease
+		border-radius: 15px
+		&:hover
+			border-color: $header
+			color: $white-font
+			background: $header
+			transition: 0.2s all ease
+	&__current
+		font-weight: 600

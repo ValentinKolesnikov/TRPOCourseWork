@@ -1,0 +1,58 @@
+@import colors
+
+.register
+	margin-top: $header_h
+	height: 100vh
+	background: rgba(0, 0, 0, 0.7)
+	&__btn
+		border: 1.5px solid $header
+		padding: 8px 12px
+		margin-top: 10px
+		position: relative
+		background: $white-font
+		left: 50%
+		color: $header
+		transform: translateX(-50%)
+		transition: 0.2s all ease
+
+		&:hover
+			// background: $white-font
+			border-color: $header
+			color: $white-font
+			background: $header
+			transition: 0.2s all ease
+	&-box
+		position: relative
+		width: 400px
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+		background-color: $white-font
+		padding: 50px
+		box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
+
+		& h1
+			margin-bottom: 30px
+			
+		& p
+			display: flex
+			flex-direction: column
+			margin: 10px 0
+		& label
+			margin-bottom: 3px
+			// color: $white-font
+	
+		& p input
+			background: transparent
+			border: none
+			border-bottom: 1px solid rgba(0,0,0,0.1)
+			padding: 3px 5px
+			
+			
+	
+			
+	
+	
+		
+			
+

@@ -1,0 +1,67 @@
+.register {
+  margin-top: 40px;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.register__btn {
+  border: 1.5px solid #21262C;
+  padding: 8px 12px;
+  margin-top: 10px;
+  position: relative;
+  background: #fff;
+  left: 50%;
+  color: #21262C;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transition: 0.2s all ease;
+  transition: 0.2s all ease;
+}
+
+.register__btn:hover {
+  border-color: #21262C;
+  color: #fff;
+  background: #21262C;
+  -webkit-transition: 0.2s all ease;
+  transition: 0.2s all ease;
+}
+
+.register-box {
+  position: relative;
+  width: 400px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 50px;
+  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.register-box h1 {
+  margin-bottom: 30px;
+}
+
+.register-box p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 10px 0;
+}
+
+.register-box label {
+  margin-bottom: 3px;
+}
+
+.register-box p input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 3px 5px;
+}
+/*# sourceMappingURL=register.css.map */

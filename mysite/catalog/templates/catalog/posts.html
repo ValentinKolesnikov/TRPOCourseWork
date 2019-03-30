@@ -43,18 +43,22 @@
     </section>
        
     <div class="pagination" >
-      <span class="step-links">
-              <a href="?page=1" ><<&nbsp;</a>
+      
+              <!-- <a href="?page=1" ></a> -->
           {% if list.has_previous %}
-              <a href="?page={{ list.previous_page_number }}"><</a>
+              <a class="pagination__prev-page" href="?page={{ list.previous_page_number }}">Предыдущая</a>
+          {% else %}    
+              <a style="visibility: hidden" class="pagination__prev-page" href="">Предыдущая</a>
           {% endif %}
   
-          <span class="current" > страница {{ list.number }} из {{ list.paginator.num_pages }}</span>
+          <span class="pagination__current">{{ list.number }} из {{ list.paginator.num_pages }}</span>
   
           {% if list.has_next %}
-              <a href="?page={{ list.next_page_number }}">></a>
+              <a class="pagination__next-page" href="?page={{ list.next_page_number }}">Следующая</a>
+          {% else %}
+              <a style="visibility: hidden" class="pagination__next-page" href="">Следующая</a>
           {% endif %}
-          <a href="?page={{ list.paginator.num_pages }}">&nbsp;>></a>
-      </span>
+          <!-- <a href="?page={{ list.paginator.num_pages }}"></a> -->
+      
   </div>
 {% endblock %}

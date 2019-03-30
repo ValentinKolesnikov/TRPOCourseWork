@@ -15,13 +15,13 @@ class RegisterForm(UserCreationForm):
     )
 
     first_name = forms.CharField(
-        label='Фамилия',
+        label='Имя',
         help_text='',
         required=True,
     )
 
     last_name = forms.CharField(
-        label='Имя',
+        label='Фамилия',
         help_text='',
         required=True,
     )

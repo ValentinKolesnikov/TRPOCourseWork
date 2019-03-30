@@ -6,7 +6,7 @@
   padding: 60px 50px 40px 50px;
   width: 100%;
   background: #fff;
-  border-radius: 10px;
+  border-radius: 0px;
   transform: scale(1);
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
@@ -19,21 +19,6 @@
   -ms-transform: scale(0.95);
   top: -20px;
   opacity: .8;
-  z-index: -1;
-}
-
-.box:before {
-  content: "";
-  width: 100%;
-  height: 30px;
-  border-radius: 10px;
-  position: absolute;
-  top: -10px;
-  background: rgba(255, 255, 255, 0.6);
-  left: 0;
-  transform: scale(0.95);
-  -webkit-transform: scale(0.95);
-  -ms-transform: scale(0.95);
   z-index: -1;
 }
 
@@ -52,7 +37,7 @@
   font-size: 34px;
   font-weight: 700;
   letter-spacing: 2px;
-  color: #82B8F6;
+  color: #21262C;
   position: relative;
 }
 
@@ -63,7 +48,7 @@
   position: absolute;
   top: 0;
   left: -50px;
-  background: #82B8F6;
+  background: #21262C;
 }
 
 .input {
@@ -154,21 +139,21 @@
   top: 10px;
   border: none;
   background: transparent;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Avenir Next Cyr', sans-serif;
   font-size: 24px;
   color: rgba(0, 0, 0, 0.8);
   font-weight: 300;
 }
 
 .input label {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Avenir Next Cyr', sans-serif;
   font-size: 24px;
   color: rgba(0, 0, 0, 0.8);
   font-weight: 300;
 }
 
 .button button {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Avenir Next Cyr', sans-serif;
   font-size: 24px;
   color: rgba(0, 0, 0, 0.8);
   font-weight: 300;
@@ -189,7 +174,7 @@
 }
 
 .input .spin {
-  background: #82B8F6;
+  background: #21262C;
   z-index: 4;
   width: 0;
 }
@@ -251,7 +236,7 @@
 
 .button button {
   background-color: #fff;
-  color: #82B8F6;
+  color: #21262C;
   border: none;
 }
 
@@ -287,8 +272,8 @@
 }
 
 .button.login button:hover {
-  color: #82B8F6;
-  border-color: #82B8F6;
+  color: #21262C;
+  border-color: #21262C;
 }
 
 .button button {
@@ -309,7 +294,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: #82B8F6;
+  background: #21262C;
   border-radius: 50%;
 }
 
@@ -320,7 +305,7 @@
   top: 0;
   left: 0;
   overflow: inherit;
-  border-radius: 10px;
+  border-radius: 0px;
   padding: 60px 50px 40px 50px;
 }
 
@@ -355,7 +340,7 @@
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  background: #82B8F6;
+  background: #21262C;
   position: absolute;
   top: 40px;
   right: -70px;
@@ -458,24 +443,5 @@
 
 .material-button {
   z-index: 1001;
-}
-
-.register {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  position: absolute;
-  top: 100px;
-}
-
-.register input {
-  heigth: 30px;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid #fff;
 }
 /*# sourceMappingURL=login-form.css.map */
