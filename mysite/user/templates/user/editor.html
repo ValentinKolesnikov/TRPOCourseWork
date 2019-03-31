@@ -1,0 +1,18 @@
+{% extends "mainApp/wrapper.html" %}
+
+{% block title %}
+Редактирование пользователя
+{% endblock %}
+
+{% block content %}
+	<div class="register">
+		<div class="register-box">
+			<h1>Редактирование</h1>
+			<form action="/user/editor/" method="POST" enctype="multipart/form-data">
+				{% csrf_token %}
+				{{ form.as_p }}
+				<input class="register__btn btn" type="submit" value="Сохранить">
+			</form>
+		</div>
+	</div>
+{% endblock %}
