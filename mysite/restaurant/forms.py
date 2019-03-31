@@ -2,8 +2,14 @@ from django.forms import ModelForm
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from catalog.models import Restaurant
+from django.forms import ClearableFileInput
+
 
 class EditorRestaurant(forms.ModelForm):   
+
+    error_messages = {
+        'password_mismatch': "Пароли не совпадают.",
+    }
 
     name = forms.CharField(
         label='Название',

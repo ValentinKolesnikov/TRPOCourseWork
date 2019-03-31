@@ -1,7 +1,10 @@
 from django.db import models
+from django.forms import ClearableFileInput
 from django.contrib.auth.models import User
 
+
 class Restaurant(models.Model):
+    
     class Meta():
         db_table = 'Restaurant'
     name = models.CharField(max_length = 120)

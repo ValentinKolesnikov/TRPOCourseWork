@@ -79,23 +79,27 @@ def create(request):
 def editor(request):
     if not request.user.is_authenticated:
         return redirect('/auth/login/')
+    rest = Restaurant.objects.filter(owner = request.user.id)[0]
     args = {}
     args['csrf_token'] = csrf.get_token(request)
-    args['form'] = EditorRestaurant()
+
+    form = EditorRestaurant(initial={'name': rest.name,'description':rest.description,'phone':rest.phone, 'photo':rest.photo})
+
+    args['form'] = form
+
     if request.POST:
         newuser_form = EditorRestaurant(request.POST)
         if (len(request.POST.get('phone',''))==12):
-            rest = Restaurant.objects.filter(owner = request.user.id)[0]
             post = request.POST
-            photo = request.FILES['photo']
-            photo.name = str(rest.id)+'.jpg'
-            if os.path.exists(BASE_DIR+'\\mysite\\media\\restaurant_image\\'+str(rest.id)+'.jpg'):
-                os.remove(BASE_DIR+'\\mysite\\media\\restaurant_image\\'+str(rest.id)+'.jpg')
-
+            if request.FILES:
+                photo = request.FILES['photo']
+                photo.name = str(rest.id)+'.jpg'
+                if os.path.exists(BASE_DIR+'\\mysite\\media\\restaurant_image\\'+str(rest.id)+'.jpg'):
+                    os.remove(BASE_DIR+'\\mysite\\media\\restaurant_image\\'+str(rest.id)+'.jpg')
+                rest.photo = photo
             rest.name = post.get('name','')
             rest.description = post.get('description','')
             rest.phone = post.get('phone','')
-            rest.photo = photo
             rest.save()
             return redirect('/restaurant/'+str(rest.id))
         else:
