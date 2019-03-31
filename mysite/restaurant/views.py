@@ -3,15 +3,16 @@ from django.db.models import Max
 from catalog.models import Restaurant, Comment, Like
 from django.contrib.auth.models import User
 from django.middleware import csrf
-from loginsystem.forms import RegisterForm
+import os, os.path
 from django.http import HttpResponse, HttpResponseRedirect
+from .forms import EditorRestaurant
+from mysite.settings import BASE_DIR
 
 def restaurant(request, id=None):
     if not id:
         return render(request,'restaurant/restaurant.html',{'error':True})
     else:
         args={}
-        args['form'] = RegisterForm()
         try:
             args['rest'] = Restaurant.objects.get(id=id)
         except:
@@ -58,7 +59,6 @@ def create(request):
     if not request.user.is_authenticated:
         return redirect('/auth/login/')
     args = {}
-    args['form'] = RegisterForm()
     args['csrf_token'] = csrf.get_token(request)
     if request.POST:
         name = request.POST.get('name','')
@@ -69,12 +69,39 @@ def create(request):
         photo = request.FILES['photo']
         restaurant = Restaurant(name = name, owner = owner, description= description, phone = phone, worktime = worktime)
         restaurant.save()
-        rest = Restaurant.objects.latest('id')
+        rest = Restaurant.objects.latest('if')
         photo.name = str(rest.id)+'.jpg'
         rest.photo = photo
         rest.save()
         return redirect('/user/'+str(owner))
     return render_to_response('restaurant/create.html', args)
+
+def editor(request):
+    if not request.user.is_authenticated:
+        return redirect('/auth/login/')
+    args = {}
+    args['csrf_token'] = csrf.get_token(request)
+    args['form'] = EditorRestaurant()
+    if request.POST:
+        newuser_form = EditorRestaurant(request.POST)
+        if (len(request.POST.get('phone',''))==12):
+            rest = Restaurant.objects.filter(owner = request.user.id)[0]
+            post = request.POST
+            photo = request.FILES['photo']
+            photo.name = str(rest.id)+'.jpg'
+            if os.path.exists(BASE_DIR+'\\mysite\\media\\restaurant_image\\'+str(rest.id)+'.jpg'):
+                os.remove(BASE_DIR+'\\mysite\\media\\restaurant_image\\'+str(rest.id)+'.jpg')
+
+            rest.name = post.get('name','')
+            rest.description = post.get('description','')
+            rest.phone = post.get('phone','')
+            rest.photo = photo
+            rest.save()
+            return redirect('/restaurant/'+str(rest.id))
+        else:
+            args['form'] = newuser_form
+    return render(request,'restaurant/editor.html', args)
+
 
 
 def CheckLike(likes, restaurant):

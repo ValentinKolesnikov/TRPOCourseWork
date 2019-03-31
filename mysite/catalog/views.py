@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.models import User
-from loginsystem.forms import RegisterForm
 from catalog.models import Restaurant,Like
 from django.contrib import auth
 import time
@@ -22,5 +21,4 @@ def post(request):
     
     likes = Like.objects.filter(user = request.user.id)
     args = {'list':queryset, 'likes':likes}
-    args['form'] = RegisterForm()
     return render(request,'catalog/posts.html', args)
