@@ -13,7 +13,7 @@ def login(request):
         user = auth.authenticate(username=username, password = password)
         if user is not None:
             auth.login(request,user)
-            return redirect('/')
+            return redirect(request.META['HTTP_REFERER'])
         else:
             args['login_error'] = 'Попробуйте еще'
             return render_to_response('loginsystem/login.html', args)
