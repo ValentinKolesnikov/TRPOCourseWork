@@ -24,7 +24,7 @@
                         <p><span class="user__bold-text">Ресторан:</span> {% if rest %}<a
                                     href="/restaurant/{{rest.id}}">{{rest.name}}</a>{% elif userprofile == user %}<a
                                     href="/restaurant/create/">Создать</a>{% else %}---{% endif %}</p>
-                        <a href="/user/editor" class="btn">Ред пользователя</a>
+                        {% if user.id == userprofile.id %}<a href="/user/editor" class="btn">Редактировать данные</a>{% endif %}
                     </div>
                 </div>
            

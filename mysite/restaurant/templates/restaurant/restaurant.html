@@ -8,7 +8,34 @@
     {% if error %}
     <h2>Ресторан удален или не создан</h2>
     {% else %}
-    <h2>{{rest.name}}</h2>
+     <div class="user">
+
+       <div class="user__card">
+         <div class="user__image"> <img class="card-img-right flex-auto d-none d-md-block " width="250" height="250"
+             src="{{rest.photo.url}}" s alt="{{rest.Username}}" data-holder-rendered="true"></div>
+         <div class="user__description">
+           <h1>{{rest.name}}</h1>
+           <p>{{rest.description}}</p>
+           <p>{{rest.worktime}}</p>
+           <p class="card-text mb-auto"><a href="/restaurant/like/{{rest.id}}"
+               {% for like in likes %}{% if like.restaurant.id == rest.id %}class="text-success"
+               {% endif %}{% endfor %}>{{rest.mark}}</a></p>
+           
+          
+             <p>Добавлен: {{rest.date|date:"d-m-Y"}}</p>
+             <p>Телефон: {{rest.phone}}</p>
+             <p>Владелец: <a href="/user/{{rest.owner}}">{{owner}}</a></p>
+             
+           {% if user.id == rest.owner %}<a href="/restaurant/editor" class="btn">Редактировать
+             данные</a>{% endif %}
+         </div>
+       </div>
+
+     </div>
+
+
+
+    <!-- <h2>{{rest.name}}</h2>
     <div class="row">
         <div class="col">
         <p>{{rest.description}}</p>
@@ -26,7 +53,7 @@
         <img class="card-img-right flex-auto d-none d-md-block " width="250" height="250"  src="{{rest.photo.url}}"s alt="{{rest.Username}}" data-holder-rendered="true">
         </div>
     </div>
-    <div>
+    <div> -->
     {% for comment in object_list %}
     <div class="card">
         <div class="card-header">
