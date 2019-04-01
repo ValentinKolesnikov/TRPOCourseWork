@@ -1,0 +1,48 @@
+.user {
+  background: rgba(0, 0, 0, 0.3);
+  height: 100vh;
+}
+
+.user__card {
+  background: #fff;
+  padding: 3%;
+  margin: 0 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.user__image {
+  display: inline-block;
+  padding: 10px;
+}
+
+.user__description {
+  display: inline-block;
+  position: relative;
+  top: 50%;
+}
+
+.user h1 {
+  font-size: 4rem;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.user p {
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.user__bold-text {
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+/*# sourceMappingURL=user.css.map */
