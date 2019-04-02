@@ -80,7 +80,9 @@
 					<button class="search__btn" type="submit"><i class="fas fa-search"></i></button>
 				</form>
 			</div>
-			<a class="top-header__login"><i class="fas fa-user"></i></a>
+			{% block auth %}
+			{% include "mainApp/includes/login_panel.html" %}
+			{% endblock %}
 		</div>
 	</header>
 
