@@ -8,6 +8,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .forms import EditorRestaurant
 from mysite.settings import BASE_DIR
 
+import cgi
+
 def restaurant(request, id=None):
     if not id:
         return render(request,'restaurant/restaurant.html',{'error':True})
@@ -113,3 +115,18 @@ def CheckLike(likes, restaurant):
         if restaurant == like.restaurant.id:
             return True
     return False
+
+def NewComment():
+    storage = cgi.FieldStorage()
+    data = storage.getvalue('data')
+    print('Status: 200 OK')
+    print('Content-Type: text/plain')
+    print('')
+    if data is not None:
+        print(data)
+
+#var formData = new FormData(document.forms.postcomment);
+
+ # var xhr = new XMLHttpRequest();
+# xhr.open("POST", "http://127.0.0.1:8000/restaurant/1");
+# xhr.send(formData);
