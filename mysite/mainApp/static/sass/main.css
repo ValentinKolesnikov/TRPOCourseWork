@@ -33,7 +33,7 @@ ul {
 
 a {
   text-decoration: none;
-  color: #000;
+  color: #fff;
 }
 
 input:-webkit-autofill {
@@ -98,7 +98,7 @@ input:-webkit-autofill {
 .top-header__search {
   line-height: 40px;
   position: absolute;
-  right: 10%;
+  right: 12%;
 }
 
 .top-header__login {
@@ -107,6 +107,10 @@ input:-webkit-autofill {
   line-height: 40px;
   margin-right: 20px;
   font-weight: 300;
+}
+
+.top-header__login a {
+  color: #fff;
 }
 
 .social {

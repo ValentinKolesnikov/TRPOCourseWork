@@ -8,11 +8,14 @@
   position: absolute;
   top: 35%;
   font-weight: 350;
-  margin: 0 7%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   color: #fff;
   font-size: 4rem;
   text-align: center;
   line-height: 7rem;
+  width: 85%;
 }
 
 .describe-section__mask {

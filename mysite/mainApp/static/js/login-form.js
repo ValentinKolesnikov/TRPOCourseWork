@@ -1,6 +1,6 @@
 $(function() {
 
-   $(".top-header__login").click(function(){
+   $("a.top-header__login").click(function(){
       $(".login-form").css("display", "block");
       $("body", "html").css("overflow", "hidden")
    });
