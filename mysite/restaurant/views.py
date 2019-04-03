@@ -23,7 +23,7 @@ def restaurant(request, id=None):
         if request.POST:
             text = request.POST.get('text','')
             if len(text)>3 and request.user.is_authenticated:
-                com = Comment(text = text, author = request.user.id, restaurant = Restaurant.objects.get(id = id))
+                com = Comment(  text = text, author = request.user.id, restaurant = Restaurant.objects.get(id = id))
                 com.save()
         comments = Comment.objects.filter(restaurant=id)
         for x in comments:
