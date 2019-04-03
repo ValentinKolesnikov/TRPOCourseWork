@@ -28,9 +28,9 @@
             <div class="rest-card__description card__descr">
               <div class="rest-card__text">{{rest.description}}</div>
               <div class="rest-card__rating">
-                <a href="/restaurant/like/{{rest.id}}"
+                <a href="#" id="{{rest.id}}"
                   {% for like in likes %}{% if like.restaurant.id == rest.id %}class="like-added"
-                  {% endif %}{% endfor %}><i class="fas fa-heart"></i>  {{rest.mark}}</a>
+                  {% endif %}{% endfor %}><i class="fas fa-heart" onclick="like(this)" ></i> {{rest.mark}}</a>
                 </div>
             </div>
             <button class="rest-card__btn">Забронировать</button>

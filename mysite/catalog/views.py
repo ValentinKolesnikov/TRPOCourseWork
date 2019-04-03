@@ -3,6 +3,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.models import User
 from catalog.models import Restaurant,Like
 from django.contrib import auth
+from django.middleware import csrf
 import time
 
 def post(request):
@@ -21,4 +22,5 @@ def post(request):
     
     likes = Like.objects.filter(user = request.user.id)
     args = {'list':queryset, 'likes':likes}
+    args['csrf_token'] = csrf.get_token(request)
     return render(request,'catalog/posts.html', args)

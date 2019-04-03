@@ -19,3 +19,22 @@ function newComment(){
       </div>`;
 
 }
+function like(btn){
+  var formData = new FormData();
+  var parent = btn.parentNode;
+  formData.append('id',parent.getAttribute('id'));
+  var mark = Number(parent.text);
+  if(parent.getAttribute('class')=='like-added'){
+    parent.removeAttribute('class');
+    mark--;
+    parent.text=" "+mark;
+  }
+  else{
+    parent.setAttribute('class','like-added')
+    mark++;
+    parent.text=" "+mark;
+  }
+  var xhr = new XMLHttpRequest();
+	xhr.open("POST","/restaurant/like");
+	xhr.send(formData);
+}

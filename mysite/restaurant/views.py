@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect, render_to_response
 from django.db.models import Max
 from catalog.models import Restaurant, Comment, Like
 from django.contrib.auth.models import User
+from django.views.decorators.csrf import csrf_exempt
 from django.middleware import csrf
 import os, os.path
 from django.http import HttpResponse, HttpResponseRedirect
@@ -33,29 +34,6 @@ def restaurant(request, id=None):
         args['owner'] = User.objects.get(id=args['rest'].owner).username
         args['likes'] = Like.objects.filter(user = request.user.id)
         return render(request,'restaurant/restaurant.html',args)
-
-def like(request, id= None):
-    try:
-        request.META['HTTP_REFERER']
-    except:
-        return redirect('/')
-    if not id or not request.user.is_authenticated:
-        return redirect(request.META['HTTP_REFERER'])
-    else:
-        likes = Like.objects.filter(user = request.user.id)
-        if  CheckLike(likes,id):
-            r = Restaurant.objects.get(id = id)
-            r.mark-=1
-            r.save()
-            like = Like.objects.filter(user = request.user.id, restaurant = Restaurant.objects.get(id = id))
-            like.delete()
-        else:
-            r = Restaurant.objects.get(id = id)
-            r.mark+=1
-            r.save()
-            like = Like(user = request.user, restaurant = Restaurant.objects.get(id = id))
-            like.save()
-        return redirect(request.META['HTTP_REFERER'])
         
 def create(request):
     if not request.user.is_authenticated:
@@ -112,21 +90,37 @@ def editor(request):
 
 def CheckLike(likes, restaurant):
     for like in likes:
-        if restaurant == like.restaurant.id:
+        if restaurant == str(like.restaurant.id):
             return True
     return False
 
-def NewComment():
-    storage = cgi.FieldStorage()
-    data = storage.getvalue('data')
-    print('Status: 200 OK')
-    print('Content-Type: text/plain')
-    print('')
-    if data is not None:
-        print(data)
+@csrf_exempt
+def like(request):
+    try:
+        request.META['HTTP_REFERER']
+    except:
+        return redirect('/')
+    if not request.user.is_authenticated:
+        return redirect(request.META['HTTP_REFERER'])
+    else:
+        id = request.POST.get('id')
+        likes = Like.objects.filter(user = request.user.id)
+        if  CheckLike(likes, id):
+            r = Restaurant.objects.get(id = id)
+            r.mark-=1
+            r.save()
+            like = Like.objects.filter(user = request.user.id, restaurant = Restaurant.objects.get(id = id))
+            like.delete()
+        else:
+            r = Restaurant.objects.get(id = id)
+            r.mark+=1
+            r.save()
+            like = Like(user = request.user, restaurant = Restaurant.objects.get(id = id))
+            like.save()
+        return redirect(request.META['HTTP_REFERER'])
+
 
 #var formData = new FormData(document.forms.postcomment);
-
- # var xhr = new XMLHttpRequest();
+# var xhr = new XMLHttpRequest();
 # xhr.open("POST", "http://127.0.0.1:8000/restaurant/1");
 # xhr.send(formData);

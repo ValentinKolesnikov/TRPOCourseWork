@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
     path('<int:id>', views.restaurant, name='restaurant_with_id'),
-    path('like/<int:id>', views.like, name='restaurant_with_id', ),
+    path('like', views.like,),
     path('create/', views.create),
     path('editor/', views.editor),
 ]
