@@ -1,7 +1,8 @@
 {% block auth %}
 {% if user.is_authenticated %}
-<p class="top-header__login"><a href="/user/{{user.id}}">{{user.username}}</a> <a href="/auth/logout/">Выйти</a></p>
+<p class="top-header__login"><a id="user" href="/user/{{user.id}}">{{user.username}}</a> <a
+		href="/auth/logout/">Выйти</a></p>
 {% else %}
-<a class="top-header__login"><i class="fas fa-user"></i></a>
+<a class="top-header__login" ><i class="fas fa-user"></i></a>
 {% endif %}
 {% endblock %}
