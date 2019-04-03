@@ -22,17 +22,22 @@ function newComment(){
 function like(btn){
   var formData = new FormData();
   var parent = btn.parentNode;
+  console.log(parent);
   formData.append('id',parent.getAttribute('id'));
-  var mark = Number(parent.text);
+  var mark = Number(parent.lastChild.innerHTML);
+  console.log(mark);
   if(parent.getAttribute('class')=='like-added'){
     parent.removeAttribute('class');
+   
     mark--;
-    parent.text=" "+mark;
+    console.log(mark);
+    parent.lastChild.innerHTML = " " + mark;
   }
   else{
     parent.setAttribute('class','like-added')
     mark++;
-    parent.text=" "+mark;
+    console.log(mark);
+    parent.lastChild.innerHTML = " " + mark;
   }
   var xhr = new XMLHttpRequest();
 	xhr.open("POST","/restaurant/like");
