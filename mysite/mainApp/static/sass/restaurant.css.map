@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,KAAK,CAAC;EACL,MAAM,EAAE,IAAI;CAMK;;AALhB,AAAD,WAAO,CAAC;EACP,KAAK,EAAE,GAAG;EACV,WAAW,EAAE,GAAG;CAAG;;AACnB,AAAD,YAAQ,CAAC;EACR,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,GAAG;CAAG",
+    "sources": [
+        "restaurant.sass",
+        "_colors.sass"
+    ],
+    "names": [],
+    "file": "restaurant.css"
+}

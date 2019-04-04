@@ -1,0 +1,14 @@
+.rest {
+  margin: 30px;
+}
+
+.rest__card {
+  width: 50%;
+  margin-left: 10%;
+}
+
+.rest__image {
+  width: 100%;
+  heigth: 40%;
+}
+/*# sourceMappingURL=restaurant.css.map */

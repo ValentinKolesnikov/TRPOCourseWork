@@ -17,7 +17,7 @@ function newComment(){
           </blockquote>
         </div>
       </div>`;
-
+  input.value = "";
 }
 function like(btn){
   var formData = new FormData();
@@ -25,20 +25,18 @@ function like(btn){
   console.log(parent);
   formData.append('id',parent.getAttribute('id'));
   var mark = Number(parent.lastChild.innerHTML);
-  console.log(mark);
   if(parent.getAttribute('class')=='like-added'){
     parent.removeAttribute('class');
    
     mark--;
-    console.log(mark);
     parent.lastChild.innerHTML = " " + mark;
   }
   else{
     parent.setAttribute('class','like-added')
     mark++;
-    console.log(mark);
     parent.lastChild.innerHTML = " " + mark;
   }
+  setTimeout(10000);
   var xhr = new XMLHttpRequest();
 	xhr.open("POST","/restaurant/like");
 	xhr.send(formData);
