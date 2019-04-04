@@ -7,6 +7,7 @@ from django.middleware import csrf
 import os
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import EditorUser
+from .models import Client
 from mysite.settings import BASE_DIR
 
 
@@ -41,8 +42,8 @@ def editor(request):
     user = request.user
     args = {}
     args['csrf_token'] = csrf.get_token(request)
-    
-    form = EditorUser(initial={'first_name': user.first_name, 'last_name': user.last_name})
+    client = Client.objects.get(user = request.user)
+    form = EditorUser(initial={'first_name': user.first_name, 'last_name': user.last_name, 'phone': client.phone, 'photo': client.photo})
 
     args['form'] = form
 
@@ -53,9 +54,11 @@ def editor(request):
             photo.name = str(user.id)+'.jpg'
             if os.path.exists(BASE_DIR+'\\mysite\\media\\user_image\\'+str(user.id)+'.jpg'):
                 os.remove(BASE_DIR+'\\mysite\\media\\user_image\\'+str(user.id)+'.jpg')
-            user.photo = photo
+            client.photo = photo
         user.first_name = post.get('first_name','')
         user.last_name = post.get('last_name','')
+        client.phone = post.get('phone','')
+        client.save()
         user.save()
         return redirect('/user/'+str(user.id))
     return render(request,'user/editor.html', args)

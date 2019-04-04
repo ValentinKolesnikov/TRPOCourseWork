@@ -22,27 +22,26 @@ function newComment(){
     input.value = "";
   }
 }
+
 function like(btn){
+  btn.removeAttribute('onclick');
   var formData = new FormData();
   var parent = btn.parentNode;
-  console.log(parent);
   formData.append('id',parent.getAttribute('id'));
   var mark = Number(parent.lastChild.innerHTML);
   if(parent.getAttribute('class')=='like-added'){
     parent.removeAttribute('class');
-   
     mark--;
-    parent.lastChild.innerHTML = " " + mark;
   }
   else{
     parent.setAttribute('class','like-added')
     mark++;
-    parent.lastChild.innerHTML = " " + mark;
   }
-
-  
-  setTimeout(10000);
+  parent.lastChild.innerHTML = " " + mark;
   var xhr = new XMLHttpRequest();
 	xhr.open("POST","/restaurant/like");
-	xhr.send(formData);
+  xhr.send(formData);
+  setTimeout(function(){
+    btn.setAttribute('onclick','like(this)');
+  },200)
 }

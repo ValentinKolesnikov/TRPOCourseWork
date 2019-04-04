@@ -1,5 +1,6 @@
 from django import forms
-from catalog.models import User
+from django.contrib.auth.models import User
+
 
 
 class EditorUser(forms.ModelForm):   
@@ -16,6 +17,20 @@ class EditorUser(forms.ModelForm):
         required=True,
     )
 
+    phone = forms.CharField(
+        label='Телефон',
+        help_text='',
+        required=True,
+        max_length=12,
+        min_length=12,
+    )
+
+    photo = forms.ImageField(
+        label='Фотография заведения',
+        help_text='',
+        required=True,
+    )
+
     class Meta:
         model = User
-        fields = ('first_name', 'last_name')
+        fields = ('first_name', 'last_name', 'phone', 'photo')
