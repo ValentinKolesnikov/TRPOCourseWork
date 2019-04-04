@@ -1,10 +1,60 @@
 @import colors
 
 .rest
-	margin: 30px
+	width: 50%
+	margin-left: 10%
+	margin-top: 30px
 	&__card
-		width: 50%
-		margin-left: 10%
+		position: relative
 	&__image
 		width: 100%
 		heigth: 40%
+	&__description
+		font-size: 2rem
+		margin-bottom: 1.5rem
+		margin-top: 0.5rem
+	&__headline
+		font-size: 4rem
+	&__rating
+		font-size: 3rem
+		position: absolute
+		right: 2rem
+		bottom: 0
+	&__contacts
+		display: flex
+		justify-content: space-between
+		flex-wrap: wrap
+		margin-bottom: 2rem
+	&__phone
+		width: 25%
+	&__address
+		width: 25%
+	&__worktime
+		width: 25%
+
+.comments
+	margin-bottom: 30px
+	&__headline
+		margin-top: 3rem
+		margin-bottom: 1rem
+	&__input
+		width: 70%
+		height: 100px
+		resize: none
+		padding: 5px
+	&__card
+		padding: 5px 7px
+		width: 80%
+		border-bottom: 1px solid rgba(0,0,0,0.1)
+		margin: 5px 0
+		font-size: 1.8rem
+		&-header a 
+			color: $header
+			font-weight: 600
+			margin-bottom: 0.5rem
+		&-time
+			margin-top: 0.5rem
+			color: rgba(0,0,0,0.4)
+			font-size: 1.3rem
+
+	

@@ -6,26 +6,31 @@ function newComment(){
 	xhr.send(formData);
 	var name = document.getElementById('user');
 	var commentBlock = document.getElementById('comments');
-	var input = document.getElementById('text');
-	commentBlock.innerHTML +=` <div class="card">
-        <div class="card-header">
-          `+name.outerHTML+` только что
-        </div>
-        <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>`+input.value+`</p>
-          </blockquote>
-        </div>
-      </div>`;
-  input.value = "";
+  var input = document.getElementById('text');
+  if(input.value !== ""){
+    commentBlock.innerHTML += ` <div class="comments__card">
+          <div class="comments__card-header">
+            `+name.outerHTML+` 
+          </div>
+          <div class="comments__card-body">
+            <blockquote>
+              <p>`+input.value+`</p>
+              <p class="comments__card-time">только что</p>
+            </blockquote>
+          </div>
+        </div>`;
+    input.value = "";
+  }
 }
 function like(btn){
   var formData = new FormData();
   var parent = btn.parentNode;
+  console.log(parent);
   formData.append('id',parent.getAttribute('id'));
   var mark = Number(parent.lastChild.innerHTML);
   if(parent.getAttribute('class')=='like-added'){
     parent.removeAttribute('class');
+   
     mark--;
     parent.lastChild.innerHTML = " " + mark;
   }
@@ -34,6 +39,8 @@ function like(btn){
     mark++;
     parent.lastChild.innerHTML = " " + mark;
   }
+
+  
   setTimeout(10000);
   var xhr = new XMLHttpRequest();
 	xhr.open("POST","/restaurant/like");

@@ -12,46 +12,52 @@
 
        <div class="rest__card">
          <img class="rest__image" src="{{rest.photo.url}}" s alt="{{rest.Username}}" data-holder-rendered="true">
-         <div class="rest__description">
+         
            <h1 class="rest__headline">{{rest.name}}</h1>
            <p class="rest__description">{{rest.description}}</p>
-           <div class="rest__contacts"></div>
-           <p class="rest__worktime">{{rest.worktime}}</p>
-           <p class=""><a href="/restaurant/like"
-               {% for like in likes %}{% if like.restaurant.id == rest.id %}class="like-added"
-               {% endif %}{% endfor %}><i class="fas fa-heart"></i> {{rest.mark}}</a>
-             
-           </p>
+           <div class="rest__contacts">
+             <p class="rest__worktime"><i class="far fa-clock"></i>  {{rest.worktime}}</p>
+             <p class="rest__phone"><i class="fas fa-phone"></i> {{rest.phone}}</p>
+             <p class="rest__address"><i class="fas fa-map-marker-alt"></i> Могилев, ул. Центральная 24/a</p>
+           </div>
+
+           <div class="rest-card__rating rest__rating">
+             <p id="{{rest.id}}" {% for like in likes %}{% if like.restaurant.id == rest.id %}class="like-added" {% endif %}{% endfor %}><i class="fas fa-heart" onclick="like(this)"></i> <span class="mark">{{rest.mark}}</span></p>
+           </div>
+
            <div id="map_canvas"></div>
              <p>Добавлен: {{rest.date|date:"d-m-Y"}}</p>
-             <p>Телефон: {{rest.phone}}</p>
              <p>Владелец: <a href="/user/{{rest.owner}}">{{owner}}</a></p>
-             
            {% if user.id == rest.owner %}<a href="/restaurant/editor" class="btn">Редактировать
              данные</a>{% endif %}
-         </div>
+       </div>
 
-          <div id="comments">
+          <div id="comments" class="comments">
+            <h2 class="comments__headline">Комментарии</h2>
+            <form name="postcomment">
+              {% csrf_token %}
+              <textarea type="text" placeholder="Введите текст комментария..." rows="30" name="text" id="text"
+                class="comments__input"></textarea>
+            </form>
+            <button class="btn" onclick="newComment()">Отправить</button>
             {% for comment in object_list %}
-            <div class="card">
-              <div class="card-header">
-                <a href="/user/{{comment.author}}">{{comment.name}}</a> {{comment.date|date:"d-m-y H:i:s"}}
+            <div class="comments__card">
+              <div class="comments__card-header">
+                <a href="/user/{{comment.author}}">{{comment.name}}</a> 
               </div>
-              <div class="card-body">
-                <blockquote class="blockquote mb-0">
+              <div class="comments__card-body">
+                <blockquote>
                   <p>{{comment.text}}</p>
                 </blockquote>
+                <p class="comments__card-time">{{comment.date|date:"d-m-y H:i:s"}}</p>
               </div>
             </div>
             {% endfor %}
           </div>
           {% if user.is_authenticated %}
-          <form name="postcomment">
-            {% csrf_token %}
-            <input type="text" name="text" id="text">
-          </form>
-          <button onclick="newComment()">Отправить</button>
-       </div>
+          
+         </div>
+
 
      
 
