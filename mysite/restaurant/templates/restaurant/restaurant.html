@@ -22,7 +22,7 @@
            </div>
 
            <div class="rest-card__rating rest__rating">
-             <p id="{{rest.id}}" {% for like in likes %}{% if like.restaurant.id == rest.id %}class="like-added" {% endif %}{% endfor %}><i class="fas fa-heart" onclick="like(this)"></i> <span class="mark">{{rest.mark}}</span></p>
+             <p id="{{rest.id}}" {% for like in likes %}{% if like.restaurant.id == rest.id %}class="like-added" {% endif %}{% endfor %}><i class="fas fa-heart like" onclick="like(this)"></i> <span class="mark">{{rest.mark}}</span></p>
            </div>
 
            <div id="map_canvas"></div>

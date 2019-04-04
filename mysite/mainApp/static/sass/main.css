@@ -479,4 +479,24 @@ input:-webkit-autofill {
   bottom: 2rem;
   left: 2rem;
 }
+
+.not-found {
+  line-height: 6rem;
+  font-size: 4rem;
+  text-align: center;
+  height: 100vh;
+}
+
+.not-found__descr-block {
+  position: relative;
+  width: 70%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.content-section {
+  position: relative;
+}
 /*# sourceMappingURL=main.css.map */

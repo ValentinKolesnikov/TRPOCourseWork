@@ -118,4 +118,8 @@
 .pagination__current {
   font-weight: 600;
 }
+
+.like {
+  cursor: pointer;
+}
 /*# sourceMappingURL=search-page.css.map */
