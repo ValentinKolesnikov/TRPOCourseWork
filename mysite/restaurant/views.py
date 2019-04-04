@@ -49,7 +49,7 @@ def create(request):
         photo = request.FILES['photo']
         restaurant = Restaurant(name = name, owner = owner, description= description, phone = phone, worktime = worktime)
         restaurant.save()
-        rest = Restaurant.objects.latest('if')
+        rest = Restaurant.objects.latest('id')
         photo.name = str(rest.id)+'.jpg'
         rest.photo = photo
         rest.save()
