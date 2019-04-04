@@ -22,12 +22,10 @@ function newComment(){
 function like(btn){
   var formData = new FormData();
   var parent = btn.parentNode;
-  console.log(parent);
   formData.append('id',parent.getAttribute('id'));
   var mark = Number(parent.lastChild.innerHTML);
   if(parent.getAttribute('class')=='like-added'){
     parent.removeAttribute('class');
-   
     mark--;
     parent.lastChild.innerHTML = " " + mark;
   }

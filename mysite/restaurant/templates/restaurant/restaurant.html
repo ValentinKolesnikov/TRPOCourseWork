@@ -17,7 +17,7 @@
            <p class="rest__description">{{rest.description}}</p>
            <div class="rest__contacts"></div>
            <p class="rest__worktime">{{rest.worktime}}</p>
-           <p class=""><a href="/restaurant/like/{{rest.id}}"
+           <p class=""><a href="/restaurant/like"
                {% for like in likes %}{% if like.restaurant.id == rest.id %}class="like-added"
                {% endif %}{% endfor %}><i class="fas fa-heart"></i> {{rest.mark}}</a>
              

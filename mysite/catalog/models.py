@@ -35,3 +35,6 @@ class Like(models.Model):
         db_table = 'Like'
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.restaurant.name)

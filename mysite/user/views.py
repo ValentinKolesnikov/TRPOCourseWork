@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import auth
 from catalog.models import Restaurant
 from django.contrib.auth.models import User
+from .models import Client
 from django.middleware import csrf
 import os
 from django.http import HttpResponse, HttpResponseRedirect
@@ -24,6 +25,7 @@ def user(request, id=None):
                 except:
                     next
                 args = {'userprofile':user, 'rest': rest}
+                args['client'] = Client.objects.get(user = user)
                 return render(request,'user/user.html',args)
             except:
                 args = {'error':True}
