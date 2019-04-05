@@ -7,7 +7,7 @@ $(function() {
 
    $(".mask").click(function () {
       $(".login-form").css("display", "none")
-      $("body", "html").css("overflow", "none")
+      $("body", "html").css("overflow", "auto")
    });
 
    $(".input input").focus(function() {

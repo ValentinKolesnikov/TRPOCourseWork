@@ -7,7 +7,10 @@ function newComment(){
 	var name = document.getElementById('user');
 	var commentBlock = document.getElementById('comments');
   var input = document.getElementById('text');
-  if(input.value !== ""){
+  if(!name){
+     $(".login-form").css("display", "block");
+     $("body", "html").css("overflow", "hidden");
+  }else if(input.value !== "" & input.value.length > 3){
     commentBlock.innerHTML += ` <div class="comments__card">
           <div class="comments__card-header">
             `+name.outerHTML+` 
@@ -24,24 +27,31 @@ function newComment(){
 }
 
 function like(btn){
-  btn.removeAttribute('onclick');
+  // btn.removeAttribute('onclick');
   var formData = new FormData();
   var parent = btn.parentNode;
   formData.append('id',parent.getAttribute('id'));
   var mark = Number(parent.lastChild.innerHTML);
-  if(parent.getAttribute('class')=='like-added'){
-    parent.removeAttribute('class');
-    mark--;
+  var name = document.getElementById('user');
+  if(name){
+    if (parent.getAttribute('class') == 'like-added'){
+      parent.removeAttribute('class');
+      mark--;
+    } else {
+      parent.setAttribute('class', 'like-added')
+      mark++;
+    }
+    parent.lastChild.innerHTML = " " + mark;
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/restaurant/like");
+    xhr.send(formData);
+    setTimeout(function () {
+      btn.setAttribute('onclick', 'like(this)');
+    }, 200)
+  }else{
+      $(".login-form").css("display", "block");
+      $("body", "html").css("overflow", "hidden");
+      
   }
-  else{
-    parent.setAttribute('class','like-added')
-    mark++;
-  }
-  parent.lastChild.innerHTML = " " + mark;
-  var xhr = new XMLHttpRequest();
-	xhr.open("POST","/restaurant/like");
-  xhr.send(formData);
-  setTimeout(function(){
-    btn.setAttribute('onclick','like(this)');
-  },200)
+  
 }
