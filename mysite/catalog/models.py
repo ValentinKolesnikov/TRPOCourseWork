@@ -19,6 +19,7 @@ class Restaurant(models.Model):
     categories = (
         ('CF', 'Кафе'),
         ('RS', 'Ресторан'),
+        ('BR', 'Бар'),
     )
 
     category = models.CharField(
@@ -26,6 +27,11 @@ class Restaurant(models.Model):
         choices = categories,
         default = 'RS',
     )
+
+    def getcategory(self):
+        for x in self.categories:
+            if x[0]==self.category:
+                return x[1]
 
     def __str__(self):
         return self.name

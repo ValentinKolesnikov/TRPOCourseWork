@@ -48,10 +48,10 @@ function like(btn){
     setTimeout(function () {
       btn.setAttribute('onclick', 'like(this)');
     }, 200)
-  }else{
+  }
+  else{
       $(".login-form").css("display", "block");
       $("body", "html").css("overflow", "hidden");
-      
   }
   
 }
