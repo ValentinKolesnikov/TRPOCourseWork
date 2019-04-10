@@ -16,6 +16,17 @@ class Restaurant(models.Model):
     worktime = models.CharField(max_length=20)
     mark = models.IntegerField(default='0')
 
+    categories = (
+        ('CF', 'Кафе'),
+        ('RS', 'Ресторан'),
+    )
+
+    category = models.CharField(
+        max_length = 2,
+        choices = categories,
+        default = 'RS',
+    )
+
     def __str__(self):
         return self.name
 

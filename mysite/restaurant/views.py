@@ -39,6 +39,8 @@ def create(request):
     if not request.user.is_authenticated:
         return redirect('/auth/login/')
     args = {}
+    form = EditorRestaurant()
+    args['form'] = form
     args['csrf_token'] = csrf.get_token(request)
     if request.POST:
         name = request.POST.get('name','')
@@ -54,7 +56,7 @@ def create(request):
         rest.photo = photo
         rest.save()
         return redirect('/user/'+str(owner))
-    return render_to_response('restaurant/create.html', args)
+    return render(request, 'restaurant/create.html', args)
 
 def editor(request):
     if not request.user.is_authenticated:
@@ -62,9 +64,7 @@ def editor(request):
     rest = Restaurant.objects.filter(owner = request.user.id)[0]
     args = {}
     args['csrf_token'] = csrf.get_token(request)
-
-    form = EditorRestaurant(initial={'name': rest.name,'description':rest.description,'phone':rest.phone, 'photo':rest.photo})
-
+    form = EditorRestaurant(initial={'name': rest.name,'description':rest.description,'worktime':rest.worktime, 'category':rest.category, 'phone':rest.phone, 'photo':rest.photo})
     args['form'] = form
 
     if request.POST:
@@ -79,7 +79,9 @@ def editor(request):
                 rest.photo = photo
             rest.name = post.get('name','')
             rest.description = post.get('description','')
+            rest.worktime = post.get('worktime','')
             rest.phone = post.get('phone','')
+            rest.category = post.get('category','')
             rest.save()
             return redirect('/restaurant/'+str(rest.id))
         else:

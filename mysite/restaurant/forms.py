@@ -10,6 +10,19 @@ class EditorRestaurant(forms.ModelForm):
         required=True,
     )
 
+    description = forms.CharField(
+        label = 'Описание',
+    )
+
+    worktime = forms.CharField(
+        label = 'Время работы',
+    )
+    
+    category = forms.ChoiceField(
+        label = 'Категория',
+        choices = Restaurant.categories,
+    )
+
     phone = forms.CharField(
         label='Телефон',
         help_text='',
@@ -26,4 +39,4 @@ class EditorRestaurant(forms.ModelForm):
 
     class Meta:
         model = Restaurant
-        fields = ('name', 'description', 'phone', 'photo')
+        fields = ('name', 'description', 'worktime', 'category','phone',  'photo')
