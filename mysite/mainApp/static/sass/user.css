@@ -1,27 +1,61 @@
 .user {
-  background: rgba(0, 0, 0, 0.3);
   height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .user__filter {
-  width: 100%;
-  height: 100%;
   position: absolute;
-  z-index: 2;
+  width: 90vw;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
   -webkit-filter: blur(5px);
           filter: blur(5px);
+  background-position: center 40%;
 }
 
-.user__inform {
+.user__filter:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.user__btn {
+  color: #fff;
+  opacity: 0.2;
+  -webkit-transition: 0.2s all ease;
+  transition: 0.2s all ease;
+  font-size: 2.5rem;
   position: relative;
-  z-index: 3;
+  top: -18px;
+  left: -5px;
+}
+
+.user__btn:hover {
+  opacity: 0.7;
+  -webkit-transition: 0.2s all ease;
+  transition: 0.2s all ease;
+}
+
+.user__create-rest {
+  color: #e6e6e6;
+  text-decoration: underline;
+  font-weight: 600;
 }
 
 .user__card {
+  top: 20px;
   position: relative;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 0 0;
+  height: 450px;
   padding: 3%;
   margin: 0 10%;
   display: -webkit-box;
@@ -37,34 +71,45 @@
 }
 
 .user__image {
+  position: relative;
   display: inline-block;
   padding: 10px;
   width: 200px;
-  height: 250px;
+  height: 200px;
+  border-radius: 50%;
   background-size: cover;
   background-position: center 0;
   background-repeat: no-repeat;
+  border: 3px solid white;
+  -webkit-box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), inset 0 0 20px white;
+          box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), inset 0 0 20px white;
 }
 
 .user__description {
   display: inline-block;
   position: relative;
-  top: 50%;
+  letter-spacing: 2px;
 }
 
 .user h1 {
   font-size: 4rem;
   margin-bottom: 40px;
   text-align: center;
+  color: #fff;
+  vertical-align: middle;
+  position: relative;
 }
 
 .user p {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin-bottom: 1.2rem;
+  color: #b3b3b3;
 }
 
 .user__bold-text {
+  font-size: 1.8rem;
   font-weight: 600;
   margin-right: 0.5rem;
+  color: #fff;
 }
 /*# sourceMappingURL=user.css.map */
