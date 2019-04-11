@@ -3,12 +3,22 @@
 .user
 	background: rgba(0,0,0,0.3)
 	height: 100vh
+	&__filter
+		
+		width: 100%
+		height: 100%
+		position: absolute
+		z-index: 2
+		filter: blur(5px)
+	&__inform
+		position: relative
+		z-index: 3
 	&__card
-		// position: absolute
-		// top: 50%
-		// left: 50%
-		// transform: translate(-50%, -50%)
-		background: #fff
+		
+		position: relative
+		background-repeat: no-repeat
+		background-size: cover
+		background-position: 0 0
 		padding: 3%
 		margin: 0 10%
 		display: flex
@@ -18,6 +28,11 @@
 	&__image
 		display: inline-block
 		padding: 10px
+		width: 200px
+		height: 250px
+		background-size: cover
+		background-position: center 0
+		background-repeat: no-repeat 
 	&__description
 		display: inline-block
 		position: relative

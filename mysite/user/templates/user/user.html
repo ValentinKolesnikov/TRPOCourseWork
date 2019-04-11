@@ -10,21 +10,26 @@
     {% else %}
     {% if user.id %}
         <div class="user">
-                <div class="user__card">
-                    <div class="user__image"><img
-                            src="{% if client.photo %}{{client.photo.url}}{% else %}/media/user_image/0.jpg{% endif %}" width="150" height="150"
-                            alt="adsf"></div>
-                    <div class="user__description">
-                        <h1>{{userprofile.first_name}} {{userprofile.last_name}}</h1>
-                        <p><span class="user__bold-text">Дата регистрации:</span> {{userprofile.date_joined|date:"d.m.Y"}} в
-                            {{userprofile.date_joined|date:"H:i:s"}}</p>
-                        <p><span class="user__bold-text">Последний вход:</span> {{userprofile.last_login|date:"d.m.Y"}} в
-                            {{userprofile.last_login|date:"H:i:s"}}</p>
-                            <p><span class="user__bold-text">Телефон:</span> {{client.phone}}</p>
-                        <p><span class="user__bold-text">Ресторан:</span> {% if rest %}<a
-                                    href="/restaurant/{{rest.id}}">{{rest.name}}</a>{% elif userprofile == user %}<a
-                                    href="/restaurant/create/">Создать</a>{% else %}---{% endif %}</p>
-                        {% if user.id == userprofile.id %}<a href="/user/editor" class="btn">Редактировать данные</a>{% endif %}
+                
+                <div class="user__card" >
+                    <div class="user__filter"></div>
+                    <div class="user__inform">
+                        <div class="user__image" style="background-image: url('{% if client.photo %}{{client.photo.url}}{% else %}/media/user_image/0.jpg{% endif %}')">
+                            <!-- <img src="{% if client.photo %}{{client.photo.url}}{% else %}/media/user_image/0.jpg{% endif %}" width="150" height="150"
+                                alt="adsf"> -->
+                            </div>
+                        <div class="user__description">
+                            <h1>{{userprofile.first_name}} {{userprofile.last_name}}</h1>
+                            <p><span class="user__bold-text">Дата регистрации:</span> {{userprofile.date_joined|date:"d.m.Y"}} в
+                                {{userprofile.date_joined|date:"H:i:s"}}</p>
+                            <p><span class="user__bold-text">Последний вход:</span> {{userprofile.last_login|date:"d.m.Y"}} в
+                                {{userprofile.last_login|date:"H:i:s"}}</p>
+                                <p><span class="user__bold-text">Телефон:</span> {{client.phone}}</p>
+                            <p><span class="user__bold-text">Ресторан:</span> {% if rest %}<a
+                                        href="/restaurant/{{rest.id}}">{{rest.name}}</a>{% elif userprofile == user %}<a
+                                        href="/restaurant/create/">Создать</a>{% else %}---{% endif %}</p>
+                            {% if user.id == userprofile.id %}<a href="/user/editor" class="btn">Редактировать данные</a>{% endif %}
+                        </div>
                     </div>
                 </div>
            
