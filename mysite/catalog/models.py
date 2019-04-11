@@ -1,6 +1,7 @@
 from django.db import models
 from django.forms import ClearableFileInput
 from django.contrib.auth.models import User
+from  django.utils import timezone
 
 
 class Restaurant(models.Model):
@@ -20,6 +21,10 @@ class Restaurant(models.Model):
         ('CF', 'Кафе'),
         ('RS', 'Ресторан'),
         ('BR', 'Бар'),
+        ('PC', 'Пиццерия'),
+        ('KR', 'Караоке'),
+        ('BG', 'Бургерная'),
+        
     )
 
     category = models.CharField(
@@ -35,6 +40,18 @@ class Restaurant(models.Model):
 
     def __str__(self):
         return self.name
+
+class Table(models.Model):
+    count = models.IntegerField(default='4')
+    smoke = models.BooleanField()
+    window = models.BooleanField()
+    reservation = models.BooleanField(default=False)
+    time = models.DateTimeField(default = timezone.now)
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.restaurant.name
+
 
 class Comment(models.Model):
     class Meta():
