@@ -1,0 +1,5 @@
+{% for time in times %}
+<div style="background-color: green; text-align: center;">
+{{time.start|date:"d.m.Y H:i"}}-{{time.end|date:"d.m.Y H:i"}}
+</div>
+{% endfor %}

@@ -45,12 +45,20 @@ class Table(models.Model):
     count = models.IntegerField(default='4')
     smoke = models.BooleanField()
     window = models.BooleanField()
-    reservation = models.BooleanField(default=False)
-    time = models.DateTimeField(default = timezone.now)
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.restaurant.name
+        return self.restaurant.name+' ' +str(self.count)
+
+class TimeTable(models.Model):
+    start = models.DateTimeField()
+    end = models.DateTimeField()
+    reservation = models.BooleanField(default=False)
+    table = models.ForeignKey(Table, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.table.__str__()
 
 
 class Comment(models.Model):
@@ -59,7 +67,7 @@ class Comment(models.Model):
     text = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     author = models.IntegerField()
-    restaurant = models.ForeignKey('Restaurant', on_delete=models.CASCADE)
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.text

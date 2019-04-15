@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect, render_to_response
 from django.db.models import Max
-from catalog.models import Restaurant, Comment, Like
+from catalog.models import Restaurant, Comment, Like, Table, TimeTable
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 from django.middleware import csrf
@@ -11,6 +11,7 @@ from mysite.settings import BASE_DIR
 
 import cgi
 
+@csrf_exempt
 def restaurant(request, id=None):
     if not id:
         return render(request,'restaurant/restaurant.html',{'error':True})
@@ -21,11 +22,19 @@ def restaurant(request, id=None):
         except:
             return render(request,'restaurant/restaurant.html',{'error':True})
         args['csrf_token'] = csrf.get_token(request)
+        args['tables'] = Table.objects.filter(restaurant = args['rest'])
         if request.POST:
-            text = request.POST.get('text','')
-            if len(text)>3 and request.user.is_authenticated:
-                com = Comment(  text = text, author = request.user.id, restaurant = Restaurant.objects.get(id = id))
-                com.save()
+            if(request.POST.get('text','')):
+                text = request.POST.get('text','')
+                if len(text)>3 and request.user.is_authenticated:
+                    com = Comment(text = text, author = request.user.id, restaurant = Restaurant.objects.get(id = id))
+                    com.save()
+            else:
+                idtable = request.POST.get('id','')
+                times = TimeTable.objects.filter(table = args['tables'][int(idtable)])
+                args['times'] = times
+                return render_to_response('restaurant/time.html',args)
+
         comments = Comment.objects.filter(restaurant=id)
         for x in comments:
             x.name = User.objects.get(id=x.author).username

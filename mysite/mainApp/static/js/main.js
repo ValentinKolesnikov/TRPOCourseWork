@@ -27,7 +27,7 @@ function newComment(){
 }
 
 function like(btn){
-  // btn.removeAttribute('onclick');
+  btn.removeAttribute('onclick');
   var formData = new FormData();
   var parent = btn.parentNode;
   formData.append('id',parent.getAttribute('id'));
@@ -45,13 +45,25 @@ function like(btn){
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "/restaurant/like");
     xhr.send(formData);
-    setTimeout(function () {
-      btn.setAttribute('onclick', 'like(this)');
-    }, 200)
   }
   else{
       $(".login-form").css("display", "block");
       $("body", "html").css("overflow", "hidden");
   }
-  
+  setTimeout(function () {
+    btn.setAttribute('onclick', 'like(this)');
+  }, 300)
+}
+
+function GetTime(btn){
+  var formData = new FormData();
+  formData.append('id', btn.id);
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", document.location.href);
+  xhr.send(formData);
+
+  setTimeout(function () {
+    document.getElementsByClassName('time')[0].innerHTML = xhr.responseText;
+  }, 200)
+
 }

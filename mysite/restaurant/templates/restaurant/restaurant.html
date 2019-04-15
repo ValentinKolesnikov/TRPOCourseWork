@@ -32,7 +32,10 @@
            {% if user.id == rest.owner %}<a href="/restaurant/editor" class="btn">Редактировать
              данные</a>{% endif %}
        </div>
-
+      {% for tab in tables %}
+     <div onclick="GetTime(this)" id="{{forloop.counter0}}" style="background-color: green; width: 17px; height: 17px; text-align: center; display: inline-block">{{tab.count}}</div>
+      {% endfor %}
+    <div class="time"></div>
           <div id="comments" class="comments">
             <h2 class="comments__headline">Комментарии</h2>
             <form name="postcomment">
