@@ -122,4 +122,31 @@
 .like {
   cursor: pointer;
 }
+
+.search-input {
+  background-color: transparent;
+  padding: 5px 15px;
+  border-radius: 15px;
+  height: 30px;
+  border: 1px solid rgba(33, 38, 44, 0.6);
+}
+
+.ext-search__fields {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 2rem;
+}
+
+.ext-search__rest-name {
+  width: 300px;
+}
+
+.ext-search__city {
+  margin: 0 10px;
+}
 /*# sourceMappingURL=search-page.css.map */

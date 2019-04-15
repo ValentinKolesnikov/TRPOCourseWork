@@ -8,15 +8,133 @@
  <section class="rest-selection">
       <div class="rest-selection__wrapper width-limit">
         <h2 class="rest-selection__headline">Поиск заведения</h2>
-        <div class="rest-selection__ext-search ext__search">
+        <div class="rest-selection__ext-search ext-search ">
+            <div class="ext-search__fields">
+                <input placeholder="Название заведения" class="ext-search__rest-name search-input" type="text">
+                <select class="ext-search__city search-input">
+                  <option class="select-default" selected disabled hidden>Выберите город</option>
+                  <option>Брест</option>
+                  <option>Витебск</option>
+                  <option>Гомель</option>
+                  <option>Гродно</option>
+                  <option>Минск</option>
+                  <option>Могилев</option>
+                  <option>Бобруйск</option>
+                  <option>Барановичи</option>
+                  <option>Борисов</option>
+                  <option>Барань</option>
+                  <option>Белоозерск</option>
+                  <option>Береза</option>
+                  <option>Березино</option>
+                  <option>Березовка</option>
+                  <option>Браслав</option>
+                  <option>Буда-Кошелево</option>
+                  <option>Быхов</option>
+                  <option>Василевичи</option>
+                  <option>Верхнедвинск</option>
+                  <option>Ветка</option>
+                  <option>Вилейка</option>
+                  <option>Волковыск</option>
+                  <option>Воложин</option>
+                  <option>Высокое</option>
+                  <option>Ганцевичи</option>
+                  <option>Глубокое</option>
+                  <option>Горки</option>
+                  <option>Городок</option>
+                  <option>Давид-Городок</option>
+                  <option>Дзержинск</option>
+                  <option>Дисна</option>
+                  <option>Добруш</option>
+                  <option>Докшицы</option>
+                  <option>Дрогичин</option>
+                  <option>Дубровно</option>
+                  <option>Дятлово</option>
+                  <option>Ельск</option>
+                  <option>Жодино</option>
+                  <option>Жабинка</option>
+                  <option>Житковичи</option>
+                  <option>Жлобин</option>
+                  <option>Заславль</option>
+                  <option>Иваново</option>
+                  <option>Ивацевичи</option>
+                  <option>Ивье</option>
+                  <option>Калинковичи</option>
+                  <option>Каменец</option>
+                  <option>Кировск</option>
+                  <option>Клецк</option>
+                  <option>Климовичи</option>
+                  <option>Кличев</option>
+                  <option>Кобрин</option>
+                  <option>Копыль</option>
+                  <option>Коссово</option>
+                  <option>Костюковичи</option>
+                  <option>Кричев</option>
+                  <option>Крупки</option>
+                  <option>Лепель</option>
+                  <option>Лида</option>
+                  <option>Логойск</option>
+                  <option>Лунинец</option>
+                  <option>Любань</option>
+                  <option>Ляховичи</option>
+                  <option>Мозырь</option>
+                  <option>Малорита</option>
+                  <option>Марьина Горка</option>
+                  <option>Микашевичи</option>
+                  <option>Миоры</option>
+                  <option>Молодечно</option>
+                  <option>Мосты</option>
+                  <option>Мстиславль</option>
+                  <option>Мядель</option>
+                  <option>Новополоцк</option>
+                  <option>Наровля</option>
+                  <option>Несвиж</option>
+                  <option>Новогрудок</option>
+                  <option>Новолукомль</option>
+                  <option>Орша</option>
+                  <option>Осиповичи</option>
+                  <option>Ошмяны</option>
+                  <option>Пинск</option>
+                  <option>Полоцк</option>
+                  <option>Петриков</option>
+                  <option>Поставы</option>
+                  <option>Пружаны</option>
+                  <option>Речица</option>
+                  <option>Рогачев</option>
+                  <option>Светлогорск</option>
+                  <option>Свислочь</option>
+                  <option>Сенно</option>
+                  <option>Скидель</option>
+                  <option>Славгород</option>
+                  <option>Слоним</option>
+                  <option>Слуцк</option>
+                  <option>Смолевичи</option>
+                  <option>Сморгонь</option>
+                  <option>Солигорск</option>
+                  <option>Старые Дороги</option>
+                  <option>Столбцы</option>
+                  <option>Столин</option>
+                  <option>Толочин</option>
+                  <option>Туров</option>
+                  <option>Узда</option>
+                  <option>Фаниполь</option>
+                  <option>Хойники</option>
+                  <option>Чаусы</option>
+                  <option>Чашники</option>
+                  <option>Червень</option>
+                  <option>Чериков</option>
+                  <option>Чечерск</option>
+                  <option>Шклов</option>
+                  <option>Щучин</option>
 
+                </select>
+                <select class="ext-search__categoty search-input">
+                  <option class="select-default" selected disabled hidden>Выберите категорию</option>
+                </select>
+            </div>
         </div>
 
 
         <div class="rest-selection__list rest-list">
-
-
-
           {% for rest in list %}
           <div class="rest-card card">
             <div class="rest-card__image card__image"><img src="{{rest.photo.url}}" alt="{{rest.name}}"></div>
