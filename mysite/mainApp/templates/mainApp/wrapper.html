@@ -58,30 +58,43 @@
 
 	<header class="top-header">
 		<div class="top-header__wrapper width-limit">
-			<a href="" class="top-header__burger burger"><i class="fas fa-bars"></i></a>
-			<div class="top-header__logo logo"><a href="/">
-					<div class="rotate-shadows"></div>
-				</a></div>
+			
+			
 			<div class="top-header__nav-bar nav-bar">
 				<ul class="nav-bar__list list">
+					<li class="nav-bar__item item">
+						<div class="top-header__logo logo"><a href="/"><div class="rotate-shadows"></div></a></div>
+					</li>
 					<li class="nav-bar__item item">
 						<a href="/catalog" class="nav-bar__link underline-hover">Поиск заведений</a>
 					</li>
 					<li class="nav-bar__item item">
 						<a href="/admin" class="nav-bar__link underline-hover">Админка</a>
 					</li>
+					<li class="nav-bar__item item">
+						
+					</li>
 					
 				</ul>
 			</div>
-			<div class="top-header__search search">
-				<form action="">
-					<input placeholder="Поиск" class="search__input" type="text">
-					<button class="search__btn" type="submit"><i class="fas fa-search"></i></button>
-				</form>
+			<div class="right-side">
+				<ul>
+					<li>
+						<div class="top-header__search search">
+							<form action="">
+								<input placeholder="Поиск" class="search__input" type="text">
+								<button class="search__btn" type="submit"><i class="fas fa-search"></i></button>
+							</form>
+						</div>
+					</li>
+					<li>
+						{% block auth %}
+						{% include "mainApp/includes/login_panel.html" %}
+						{% endblock %}
+					</li>
+				</ul>
 			</div>
-			{% block auth %}
-			{% include "mainApp/includes/login_panel.html" %}
-			{% endblock %}
+			
 		</div>
 	</header>
 

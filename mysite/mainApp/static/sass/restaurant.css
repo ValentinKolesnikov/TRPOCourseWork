@@ -104,12 +104,36 @@ body {
 }
 
 tr, td {
-  border: 1px solid #000000;
-  padding: 30px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 15px;
   empty-cells: hide;
 }
 
 .tables__block {
   border-collapse: collapse;
+}
+
+.table {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: rgba(33, 38, 44, 0.5);
+  text-align: center;
+  line-height: 25px;
+  color: #fff;
+}
+
+.table__available {
+  background-color: rgba(0, 255, 0, 0.3);
+}
+
+.table__unavailable {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+.table__rotate {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
 }
 /*# sourceMappingURL=restaurant.css.map */

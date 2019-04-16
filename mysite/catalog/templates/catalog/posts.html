@@ -129,6 +129,9 @@
                 </select>
                 <select class="ext-search__categoty search-input">
                   <option class="select-default" selected disabled hidden>Выберите категорию</option>
+                  {% for cat in Restaurant.categories %}
+                  <option>{{Restaurant.categories}}</option>
+                  {% endfor %}
                 </select>
             </div>
         </div>

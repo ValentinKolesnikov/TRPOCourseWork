@@ -37,7 +37,7 @@
 
 
 
-      {% for tab in tables %}
+      <!-- {% for tab in tables %}
         {% if tab.smoke and tab.window %}
             <div onclick="GetTime(this)" id="{{forloop.counter0}}" class="table__window-smoke" style="background-color: green; width: 17px; height: 17px; text-align: center; display: inline-block">{{tab.count}}</div>
         {% endif %}
@@ -47,7 +47,7 @@
         {% if not tab.smoke and tab.window %}
             <div onclick="GetTime(this)" id="{{forloop.counter0}}" class="table__window" style="background-color: green; width: 17px; height: 17px; text-align: center; display: inline-block">{{tab.count}}</div>
         {% endif %}
-      {% endfor %}
+      {% endfor %} -->
     <div class="time"></div>
 
        <div class="tables">
@@ -55,55 +55,47 @@
            <tr>
              <td></td>
              <td></td>
-             <td colspan="2">Можно курить</td>
+             <th colspan="2">Можно курить</td>
              
            </tr>
            <tr>
              <td></td>
              <td></td>
-             <td>-</td>
-             <td>+</td>
+             <td class="table__unavailable">-</td>
+             <td class="table__available">+</td>
            </tr>
            <tr>
-             <td rowspan="2">У окна</td>
-             <td>-</td>
-             <td>
+             <th class="table__rotate" rowspan="2">У окна</td>
+             <td class="table__unavailable">-</td>
+             <td class="table__unavailable">
               {% for tab in tables %}
               {% if not tab.smoke and not tab.window %}
-              <div onclick="GetTime(this)" id="{{forloop.counter0}}" class="table__window-smoke"
-                style="background-color: green; width: 17px; height: 17px; text-align: center; display: inline-block">{{tab.count}}
-              </div>
+              <div onclick="GetTime(this)" id="{{forloop.counter0}}" class="table__window-smoke table">{{tab.count}}</div>
               {% endif %}
               {% endfor %}
              </td>
-             <td>
+             <td class="table__available">
               {% for tab in tables %}
               {% if tab.smoke and not tab.window %}
-              <div onclick="GetTime(this)" id="{{forloop.counter0}}" class="table__window-smoke"
-                style="background-color: green; width: 17px; height: 17px; text-align: center; display: inline-block">{{tab.count}}
-              </div>
+              <div onclick="GetTime(this)" id="{{forloop.counter0}}" class="table__window-smoke table">{{tab.count}}</div>
               {% endif %}
               {% endfor %}
              </td>
            </tr>
            <tr>
              
-             <td>+</td>
-             <td>
+             <td class="table__available">+</td>
+             <td class="table__available">
               {% for tab in tables %}
               {% if not tab.smoke and tab.window %}
-              <div onclick="GetTime(this)" id="{{forloop.counter0}}" class="table__window-smoke"
-                style="background-color: green; width: 17px; height: 17px; text-align: center; display: inline-block">{{tab.count}}
-              </div>
+              <div onclick="GetTime(this)" id="{{forloop.counter0}}" class="table__window-smoke table">{{tab.count}}</div>
               {% endif %}
               {% endfor %}
              </td>
-             <td>
+             <td class="table__available">
               {% for tab in tables %}
               {% if tab.smoke and tab.window %}
-              <div onclick="GetTime(this)" id="{{forloop.counter0}}" class="table__window-smoke"
-                style="background-color: green; width: 17px; height: 17px; text-align: center; display: inline-block">{{tab.count}}
-              </div>
+              <div onclick="GetTime(this)" id="{{forloop.counter0}}" class="table__window-smoke table">{{tab.count}}</div>
               {% endif %}
               {% endfor %}
              </td>
