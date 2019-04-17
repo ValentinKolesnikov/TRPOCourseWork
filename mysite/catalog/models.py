@@ -24,7 +24,6 @@ class Restaurant(models.Model):
         ('PC', 'Пиццерия'),
         ('KR', 'Караоке'),
         ('BG', 'Бургерная'),
-        
     )
 
     category = models.CharField(
@@ -59,7 +58,6 @@ class TimeTable(models.Model):
     
     def __str__(self):
         return self.table.__str__()
-
 
 class Comment(models.Model):
     class Meta():

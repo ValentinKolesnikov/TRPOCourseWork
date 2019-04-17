@@ -125,10 +125,9 @@
                   <option>Чечерск</option>
                   <option>Шклов</option>
                   <option>Щучин</option>
-
                 </select>
-                <select class="ext-search__categoty search-input">
-                  <option class="select-default" selected disabled hidden>Выберите категорию</option>
+                <select class="ext-search__category  search-input"  onchange="fa()">
+                  <option value="" class="select-default">Выберите категорию</option>
                   {% for cat in categories %}
                   <option value={{cat.0}}>{{cat.1}}</option>
                   {% endfor %}
@@ -136,7 +135,7 @@
             </div>
         </div>
 
-
+        <div class="kostil">
         <div class="rest-selection__list rest-list">
           {% for rest in list %}
           <div class="rest-card card">
@@ -159,11 +158,8 @@
           {% endfor %}
           
         </div>
-      </div>
-    </section>
        
     <div class="pagination" >
-      
               <!-- <a href="?page=1" ></a> -->
           {% if list.has_previous %}
               <a class="pagination__prev-page" href="?page={{ list.previous_page_number }}{% if cat %}&cat={{cat}}{% endif %}">Предыдущая</a>
@@ -179,6 +175,9 @@
               <a style="visibility: hidden" class="pagination__next-page" href="">Следующая</a>
           {% endif %}
           <!-- <a href="?page={{ list.paginator.num_pages }}"></a> -->
-      
+      </div>
+    </div>
   </div>
+</section>
+
 {% endblock %}

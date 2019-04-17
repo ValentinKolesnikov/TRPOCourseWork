@@ -34,7 +34,7 @@ def restaurant(request, id=None):
                 times = TimeTable.objects.filter(table = args['tables'][int(idtable)])
                 args['times'] = times
                 return render_to_response('restaurant/time.html',args)
-
+                
         comments = Comment.objects.filter(restaurant=id)
         for x in comments:
             x.name = User.objects.get(id=x.author).username

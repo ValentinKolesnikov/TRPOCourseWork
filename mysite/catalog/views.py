@@ -3,10 +3,15 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.models import User
 from catalog.models import Restaurant,Like
 from django.contrib import auth
+from django.views.decorators.csrf import csrf_exempt
 from django.middleware import csrf
 
+@csrf_exempt
 def post(request):
-    cat = request.GET.get('cat')
+    if request.POST:
+        cat = request.POST.get('cat','')
+    else:
+        cat = request.GET.get('cat')
     object_list = Restaurant.objects.all()
     if cat:
         object_list = object_list.filter(category = cat)
@@ -21,8 +26,11 @@ def post(request):
         queryset = paginator.page(paginator.num_pages)
     
     likes = Like.objects.filter(user = request.user.id)
+
     args = {'list':queryset, 'likes':likes}
     args['cat'] = cat
     args['csrf_token'] = csrf.get_token(request)
     args['categories'] = Restaurant.categories
+    if request.POST:
+        return render(request,'catalog/newposts.html', args)
     return render(request,'catalog/posts.html', args)

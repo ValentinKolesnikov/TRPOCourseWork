@@ -64,6 +64,19 @@ function GetTime(btn){
 
   setTimeout(function () {
     document.getElementsByClassName('time')[0].innerHTML = xhr.responseText;
-  }, 200)
+  }, 150);
+
+}
+
+function fa(){
+  var formData = new FormData();
+  formData.append('cat',document.getElementsByClassName('ext-search__category')[0].value);
+  //location.hash = "cat="+formData.get('cat');
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "/catalog/");
+  xhr.send(formData);
+  setTimeout(function(){
+    document.getElementsByClassName('kostil')[0].innerHTML = xhr.responseText;
+  },150);
 
 }
