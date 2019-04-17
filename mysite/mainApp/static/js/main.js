@@ -61,22 +61,37 @@ function GetTime(btn){
   var xhr = new XMLHttpRequest();
   xhr.open("POST", document.location.href);
   xhr.send(formData);
-
-  setTimeout(function () {
+  var checkstatus = setInterval(function(){
+    if (xhr.status==200)
+    {
     document.getElementsByClassName('time')[0].innerHTML = xhr.responseText;
-  }, 150);
+    clearInterval(checkstatus);
+    }
+    else if(xhr.status!=0)
+      clearInterval(checkstatus);
+  }, 10);
 
 }
 
-function fa(){
+function newposts(){
   var formData = new FormData();
   formData.append('cat',document.getElementsByClassName('ext-search__category')[0].value);
-  //location.hash = "cat="+formData.get('cat');
+  if(formData.get('cat'))
+    history.pushState(null, null, '?cat='+formData.get('cat'));
+  else
+    history.pushState(null, null, "/catalog/");
+
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "/catalog/");
   xhr.send(formData);
-  setTimeout(function(){
-    document.getElementsByClassName('kostil')[0].innerHTML = xhr.responseText;
-  },150);
+  var checkstatus = setInterval(function(){
+    if (xhr.status==200)
+    {
+      document.getElementsByClassName('kostil')[0].innerHTML = xhr.responseText;
+      clearInterval(checkstatus);
+    }
+    else if(xhr.status!=0)
+      clearInterval(checkstatus);
+  },10);
 
 }
