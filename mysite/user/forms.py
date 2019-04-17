@@ -26,7 +26,7 @@ class EditorUser(forms.ModelForm):
     )
 
     photo = forms.ImageField(
-        label='Фотография заведения',
+        label='Фотография',
         help_text='',
         required=True,
     )

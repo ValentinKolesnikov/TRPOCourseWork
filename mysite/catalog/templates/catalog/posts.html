@@ -129,8 +129,8 @@
                 </select>
                 <select class="ext-search__categoty search-input">
                   <option class="select-default" selected disabled hidden>Выберите категорию</option>
-                  {% for cat in Restaurant.categories %}
-                  <option>{{Restaurant.categories}}</option>
+                  {% for cat in categories %}
+                  <option value={{cat.0}}>{{cat.1}}</option>
                   {% endfor %}
                 </select>
             </div>
@@ -166,7 +166,7 @@
       
               <!-- <a href="?page=1" ></a> -->
           {% if list.has_previous %}
-              <a class="pagination__prev-page" href="?page={{ list.previous_page_number }}">Предыдущая</a>
+              <a class="pagination__prev-page" href="?page={{ list.previous_page_number }}{% if cat %}&cat={{cat}}{% endif %}">Предыдущая</a>
           {% else %}    
               <a style="visibility: hidden" class="pagination__prev-page" href="">Предыдущая</a>
           {% endif %}
@@ -174,7 +174,7 @@
           <span class="pagination__current">{{ list.number }} из {{ list.paginator.num_pages }}</span>
   
           {% if list.has_next %}
-              <a class="pagination__next-page" href="?page={{ list.next_page_number }}">Следующая</a>
+              <a class="pagination__next-page" href="?page={{ list.next_page_number }}{% if cat %}&cat={{cat}}{% endif %}">Следующая</a>
           {% else %}
               <a style="visibility: hidden" class="pagination__next-page" href="">Следующая</a>
           {% endif %}
