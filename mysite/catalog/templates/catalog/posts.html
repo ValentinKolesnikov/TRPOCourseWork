@@ -119,7 +119,7 @@
                   <option>Фаниполь</option>
                   <option>Хойники</option>
                   <option>Чаусы</option>
-                  <option>Чашники</option>
+                  <option >Чашники</option>
                   <option>Червень</option>
                   <option>Чериков</option>
                   <option>Чечерск</option>
@@ -128,10 +128,11 @@
                 </select>
                 <select class="ext-search__category  search-input"  onchange="newposts()">
                   <option value="" class="select-default">Выберите категорию</option>
-                  {% for cat in categories %}
-                  <option value={{cat.0}}>{{cat.1}}</option>
+                  {% for ct in categories %}
+                  <option {% if ct.0 == cat %}selected{% endif %} value={{ct.0}}>{{ct.1}}</option>
                   {% endfor %}
                 </select>
+                <input class="datepicker-here" id='date'></input>
             </div>
         </div>
 

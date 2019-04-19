@@ -1,0 +1,14 @@
+{
+  "name": "packeges",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Oleg&Valik",
+  "license": "ISC",
+  "dependencies": {
+    "air-datepicker": "^2.2.3"
+  }
+}

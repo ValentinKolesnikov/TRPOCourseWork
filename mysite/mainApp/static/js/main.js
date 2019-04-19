@@ -90,8 +90,18 @@ function newposts(){
       document.getElementsByClassName('kostil')[0].innerHTML = xhr.responseText;
       clearInterval(checkstatus);
     }
-    else if(xhr.status!=0)
+    
+    else if(xhr.status!=0){
       clearInterval(checkstatus);
+    }
+     
   },10);
 
+}
+
+window.onload = function(){
+  $('#date').datepicker({
+
+    minDate: new Date()
+  });
 }
