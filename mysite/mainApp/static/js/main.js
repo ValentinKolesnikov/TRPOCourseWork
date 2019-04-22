@@ -100,8 +100,23 @@ function newposts(){
 }
 
 window.onload = function(){
+  var now =new Date();
+  var max = new Date(now.getFullYear, now.getMonth, now.getDay + 7);
   $('#date').datepicker({
 
-    minDate: new Date()
+    minDate: now,
+    
+    
   });
+
+ 
+}
+
+function MakeOrder(btn){
+  $('.order').css('display', 'block');
+}
+
+function HideOrderForm(){
+  $('.order').css('display', 'none');
+
 }

@@ -25,6 +25,53 @@
 	
 </head>
 <body>
+	<div class="order">
+	<div class="order-card">
+		<h2>Выберите день</h2>
+		<input type="text" class="datepicker-here order-card__date" id="date" placeholder="20.05.2019">
+		<h2>Выберите столик</h2>
+		<div class="order-card__filter">
+
+			<lable for="is-smoke">Можно курить<input name="is-smoke" id="is-smoke" class="order-card__checkbox"
+					type="checkbox"></lable>
+			<lable for="is-window">У окна<input name="is-window" id="is-window" class="order-card__checkbox"
+					type="checkbox"></lable>
+		</div>
+
+		<div class="order-card__tables-result tables">
+			<div class="order-card__table-icon tables__table-icon" style="background-image: url('/media/other/table.png')">
+				<span class="order-card__sit-count tables__sit-count">13</span></div>
+			<div class="order-card__table-icon tables__table-icon" style="background-image: url('/media/other/table.png')">
+				<span class="order-card__sit-count tables__sit-count">13</span></div>
+			<div class="order-card__table-icon tables__table-icon" style="background-image: url('/media/other/table.png')">
+				<span class="order-card__sit-count tables__sit-count">13</span></div>
+			<div class="order-card__table-icon tables__table-icon" style="background-image: url('/media/other/table.png')">
+				<span class="order-card__sit-count tables__sit-count">13</span></div>
+			<div class="order-card__table-icon tables__table-icon" style="background-image: url('/media/other/table.png')">
+				<span class="order-card__sit-count tables__sit-count">13</span></div>
+			<div class="order-card__table-icon tables__table-icon" style="background-image: url('/media/other/table.png')">
+				<span class="order-card__sit-count tables__sit-count">13</span></div>
+			<div class="order-card__table-icon tables__table-icon" style="background-image: url('/media/other/table.png')">
+				<span class="order-card__sit-count tables__sit-count">13</span></div>
+			<div class="order-card__table-icon tables__table-icon" style="background-image: url('/media/other/table.png')">
+				<span class="order-card__sit-count tables__sit-count">13</span></div>
+			<div class="order-card__table-icon tables__table-icon" style="background-image: url('/media/other/table.png')">
+				<span class="order-card__sit-count tables__sit-count">13</span></div>
+			<div class="order-card__table-icon tables__table-icon" style="background-image: url('/media/other/table.png')">
+				<span class="order-card__sit-count tables__sit-count">13</span></div>
+			<div class="order-card__table-icon tables__table-icon" style="background-image: url('/media/other/table.png')">
+				<span class="order-card__sit-count tables__sit-count">13</span></div>
+			<div class="order-card__table-icon tables__table-icon" style="background-image: url('/media/other/table.png')">
+				<span class="order-card__sit-count tables__sit-count">13</span></div>
+			<div class="order-card__table-icon tables__table-icon" style="background-image: url('/media/other/table.png')">
+				<span class="order-card__sit-count tables__sit-count">13</span></div>
+			<div class="order-card__table-icon tables__table-icon" style="background-image: url('/media/other/table.png')">
+				<span class="order-card__sit-count tables__sit-count">13</span></div>
+		</div>
+
+	</div>
+	<div class="order-mask" onclick="HideOrderForm()"></div>
+	</div>
 	<div class="login-form">
 		
 			<div class="materialContainer">	
@@ -168,12 +215,6 @@
 	<script src="{% static 'js/login-form.js' %}"></script>
 	<script src="{% static 'js/main.js' %}"></script>
 	<script src="{% static 'node_modules/air-datepicker/dist/js/datepicker.min.js' %}"></script>
-	<!-- <script src="{% static 'js/image-size.js' %}"></script> -->
-	<!-- <script>
-		$('#date').datepicker({
-			minDate: new Date()
-		});
-	</script> -->
 	
 
 </body>
