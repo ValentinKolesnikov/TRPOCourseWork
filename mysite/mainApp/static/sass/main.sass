@@ -384,7 +384,7 @@ input:-webkit-autofill
 		align-items: center
 		background-color: rgba($header, 0.9)
 		color: $white-font
-		position: absolute
+		position: fixed
 		top: 50%
 		left: 50%
 		padding: 30px 7px
@@ -430,10 +430,24 @@ input:-webkit-autofill
 			background-color: $header
 			border-radius: 30px
 			padding: 7px
+			height: 200px
+			width: 85%
+			overflow: auto
+			position: relative
+			&::-webkit-scrollbar 
+ 				width: 12px
+
 		&__table-icon
 			margin: 7px
-
-	
-
-
+		&__offer
+			margin-top: 20px
+			max-width: 70%
+			min-width: 70%
+			height: 100px
+			padding: 5px
+		&__send-btn
+			margin-top: 15px
 		
+
+
+
