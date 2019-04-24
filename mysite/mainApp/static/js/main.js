@@ -105,15 +105,54 @@ window.onload = function(){
   $('#date').datepicker({
 
     minDate: now,
-    
-    
   });
-
- 
 }
+
+
+function GetTables(id, window, smoke)
+{
+  var formData = new FormData();
+  formData.append('id',id);
+  formData.append('window',window);
+  formData.append('smoke',smoke);
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "/catalog/");
+  xhr.send(formData);
+
+  var checkstatus = setInterval(function(){
+    if (xhr.status==200)
+    {
+      document.getElementsByClassName('order-card__tables-result')[0].innerHTML = xhr.responseText;
+      clearInterval(checkstatus);
+    }
+    
+    else if(xhr.status!=0){
+      clearInterval(checkstatus);
+    }
+  },10);
+}
+
+
+function ChangeValue()
+{
+  var id = $('.order')[0].getAttribute('id');
+  var window = ($('#is-window')[0].checked);
+  var smoke = ($('#is-smoke')[0].checked);
+
+  GetTables(id, window, smoke);
+}
+
+
 
 function MakeOrder(btn){
   $('.order').css('display', 'block');
+  var id = btn.getAttribute('id');
+  $('.order')[0].setAttribute('id', id)
+  var window = ($('#is-window')[0].checked);
+  var smoke = ($('#is-smoke')[0].checked);
+
+  GetTables(id,window,smoke);
+  
 }
 
 function HideOrderForm(){

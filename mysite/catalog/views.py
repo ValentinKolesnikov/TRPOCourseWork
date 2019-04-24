@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.models import User
-from catalog.models import Restaurant,Like
+from catalog.models import Restaurant,Like, Table
 from django.contrib import auth
 from django.views.decorators.csrf import csrf_exempt
 from django.middleware import csrf
@@ -9,6 +9,23 @@ from django.middleware import csrf
 @csrf_exempt
 def post(request):
     if request.POST:
+        if request.POST.get('id'):
+            rest = Restaurant.objects.get(id = request.POST.get('id'))
+            if request.POST.get('window') == 'true':
+                window = True
+            else:
+                window = False
+            if request.POST.get('smoke') == 'true':
+                smoke = True
+            else:
+                smoke = False
+            print(smoke)
+            tables = Table.objects.filter(restaurant = rest)
+            goodtable = []
+            for tb in tables:
+                if tb.window == window and tb.smoke == smoke:
+                    goodtable.append(tb)
+            return render_to_response('catalog/order.html', {'tables':goodtable})
         cat = request.POST.get('cat','')
     else:
         cat = request.GET.get('cat')
