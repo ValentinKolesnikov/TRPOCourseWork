@@ -132,16 +132,45 @@ function GetTables(id, window, smoke)
   },10);
 }
 
+function GetTimesTable(btn)
+{
+  var formData = new FormData();
+  formData.append('id',btn.getAttribute("id"));
+  var date = $('#date')[0].value;
+  if (date)
+    formData.append('date', $('#date')[0].value);
+  else{
+    formData.append('date', '20.05.2019');
+  }
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "/catalog/");
+  xhr.send(formData);
+
+  var checkstatus = setInterval(function(){
+    if (xhr.status==200)
+    {
+      document.getElementsByClassName('order-card__time-block')[0].innerHTML = xhr.responseText;
+      clearInterval(checkstatus);
+    }
+    
+    else if(xhr.status!=0){
+      clearInterval(checkstatus);
+    }
+  },10);
+}
+
 
 function ChangeValue()
 {
   var id = $('.order')[0].getAttribute('id');
   var window = ($('#is-window')[0].checked);
   var smoke = ($('#is-smoke')[0].checked);
+  document.getElementsByClassName('order-card__time-block')[0].innerHTML = "";
+
 
   GetTables(id, window, smoke);
 }
-
 
 
 function MakeOrder(btn){

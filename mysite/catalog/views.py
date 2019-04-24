@@ -1,7 +1,7 @@
 from django.shortcuts import render, render_to_response
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.models import User
-from catalog.models import Restaurant,Like, Table
+from catalog.models import Restaurant,Like, Table, TimeTable
 from django.contrib import auth
 from django.views.decorators.csrf import csrf_exempt
 from django.middleware import csrf
@@ -10,22 +10,29 @@ from django.middleware import csrf
 def post(request):
     if request.POST:
         if request.POST.get('id'):
-            rest = Restaurant.objects.get(id = request.POST.get('id'))
-            if request.POST.get('window') == 'true':
-                window = True
+            if request.POST.get('window'):
+                rest = Restaurant.objects.get(id = request.POST.get('id'))
+                if request.POST.get('window') == 'true':
+                    window = True
+                else:
+                    window = False
+                if request.POST.get('smoke') == 'true':
+                    smoke = True
+                else:
+                    smoke = False
+                print(smoke)
+                tables = Table.objects.filter(restaurant = rest)
+                goodtable = []
+                for tb in tables:
+                    if tb.window == window and tb.smoke == smoke:
+                        goodtable.append(tb)
+                return render_to_response('catalog/order.html', {'tables':goodtable})
             else:
-                window = False
-            if request.POST.get('smoke') == 'true':
-                smoke = True
-            else:
-                smoke = False
-            print(smoke)
-            tables = Table.objects.filter(restaurant = rest)
-            goodtable = []
-            for tb in tables:
-                if tb.window == window and tb.smoke == smoke:
-                    goodtable.append(tb)
-            return render_to_response('catalog/order.html', {'tables':goodtable})
+                table = Table.objects.get(id = request.POST.get('id'))
+                day, month, years = request.POST.get('date').split('.')
+                times = TimeTable.objects.filter(table = table)
+                return render_to_response('catalog/order.html', {'times':times})
+
         cat = request.POST.get('cat','')
     else:
         cat = request.GET.get('cat')

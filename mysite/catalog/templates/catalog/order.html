@@ -1,4 +1,8 @@
 {% for tb in tables %}
-<div class="order-card__table-icon tables__table-icon" style="background-image: url('/media/other/table.png')">
+<div id="{{tb.id}}" onclick="GetTimesTable(this)" class="order-card__table-icon tables__table-icon" style="background-image: url('/media/other/table.png')">
     <span class="order-card__sit-count tables__sit-count">{{tb.count}}</span></div>
+{% endfor %}
+
+{% for tm in times %}
+<p>{{tm.start}}-{{tm.end}}</p>
 {% endfor %}
