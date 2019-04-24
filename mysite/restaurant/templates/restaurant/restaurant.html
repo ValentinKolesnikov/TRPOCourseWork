@@ -21,6 +21,16 @@
              <p class="rest__address"><i class="fas fa-map-marker-alt"></i> Могилев, ул. Центральная 24/a</p>
              <p>{{rest.getcategory}}</p>
            </div>
+           <div>
+             <p>ПН {{week.0.0}}</p>
+             <p>ВТ {{week.1.0}}</p>
+             <p>СР {{week.2.0}}</p>
+             <p>ЧТ {{week.3.0}}</p>
+             <p>ПТ {{week.4.0}}</p>
+             <p>СБ {{week.5.0}}</p>
+             <p>ВС {{week.6.0}}</p>
+
+           </div>
 
            <div class="rest-card__rating rest__rating">
              <p id="{{rest.id}}" {% for like in likes %}{% if like.restaurant.id == rest.id %}class="like-added" {% endif %}{% endfor %}><i class="fas fa-heart like" onclick="like(this)"></i> <span class="mark">{{rest.mark}}</span></p>

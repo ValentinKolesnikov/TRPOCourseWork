@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect, render_to_response
 from django.db.models import Max
-from catalog.models import Restaurant, Comment, Like, Table, TimeTable
+from catalog.models import Restaurant, Comment, Like, Table, TimeTable, Week
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 from django.middleware import csrf
@@ -42,6 +42,17 @@ def restaurant(request, id=None):
         args['rest'] = Restaurant.objects.get(id=id)
         args['owner'] = User.objects.get(id=args['rest'].owner).username
         args['likes'] = Like.objects.filter(user = request.user.id)
+        wk = Week.objects.get(restaurant = args['rest'])
+        wek = []
+        wek.append(str(wk.monday).split(' '))
+        wek.append(str(wk.tuesday).split(' '))
+        wek.append(str(wk.wednesday).split(' '))
+        wek.append(str(wk.thursday).split(' '))
+        wek.append(str(wk.friday).split(' '))
+        wek.append(str(wk.saturday).split(' '))
+        wek.append(str(wk.sunday).split(' '))
+        args['week'] = wek
+
         return render(request,'restaurant/restaurant.html',args)
         
 def create(request):
