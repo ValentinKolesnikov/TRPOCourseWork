@@ -68,7 +68,7 @@ class Week(models.Model):
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
     timework = models.CharField(max_length=50, default = 'Пн-Пт 10:00-18:00')
 
-    def get_day(self, day, timework):
+    def set_day(self, day, timework):
         if(day=='ПН'):
             self.monday = timework
         elif(day=='ВТ'):
@@ -96,7 +96,7 @@ class Week(models.Model):
             count = int(hours*2+minutes/30)
 
             if(len(days.split('-'))==1):
-                self.get_day(days, time + " " + str(count))
+                self.set_day(days, time + " " + str(count))
             else:
                 startday, endday = days.split('-')
                 s = e = 1
@@ -107,7 +107,7 @@ class Week(models.Model):
                         e = i
                         break
                 for k in range(s,e+1):
-                    self.get_day(keys[k],time + " " + str(count))
+                    self.set_day(keys[k],time + " " + str(count))
 
     def __str__(self):
         return str(self.restaurant.name)

@@ -135,7 +135,7 @@ function GetTables(id, window, smoke)
 function GetTimesTable(btn)
 {
   var formData = new FormData();
-  formData.append('id',btn.getAttribute("id"));
+  formData.append('idtable',btn.getAttribute("id"));
   var date = $('#date')[0].value;
   if (date)
     formData.append('date', $('#date')[0].value);
@@ -159,7 +159,9 @@ function GetTimesTable(btn)
     }
   },10);
 }
-
+function ChangeDate(btn){
+  console.log(btn.value);
+}
 
 function ChangeValue()
 {
