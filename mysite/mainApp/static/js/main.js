@@ -175,6 +175,7 @@ function ChangeValue()
 
 function MakeOrder(btn){
   $('.order').css('display', 'block');
+  $("body", "html").css("overflow", "hidden");
   var id = btn.getAttribute('id');
   $('.order')[0].setAttribute('id', id)
   var window = ($('#is-window')[0].checked);
@@ -184,7 +185,11 @@ function MakeOrder(btn){
   
 }
 
-function HideOrderForm(){
+var date = new Date();
+
+
+function HideOrderForm() {
   $('.order').css('display', 'none');
+  $("body", "html").css("overflow", "auto");
 
 }
