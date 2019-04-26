@@ -623,4 +623,39 @@ input:-webkit-autofill {
 .order-card__send-btn {
   margin-top: 15px;
 }
+
+.order-card__time-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 80%;
+}
+
+.order-card__time-btn {
+  background-color: #82B8F6;
+  border: 0px solid #fff;
+  border-radius: 3px;
+  color: #fff;
+  padding: 8px 7px;
+  margin: 1px;
+  cursor: pointer;
+  -webkit-transition: 0.1s all ease;
+  transition: 0.1s all ease;
+}
+
+.order-card__time-btn:hover {
+  -webkit-box-shadow: 0px 0px 0px 1.5px #fff inset;
+          box-shadow: 0px 0px 0px 1.5px #fff inset;
+  -webkit-transition: 0.1s all ease;
+  transition: 0.1s all ease;
+}
+
+.order-card__choose-time-headline {
+  text-align: center;
+}
 /*# sourceMappingURL=main.css.map */

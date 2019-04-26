@@ -150,7 +150,8 @@ function GetTimesTable(btn)
   var checkstatus = setInterval(function(){
     if (xhr.status==200)
     {
-      document.getElementsByClassName('order-card__time-block')[0].innerHTML = xhr.responseText;
+      document.getElementsByClassName('order-card__time-block')[0].innerHTML = xhr.responseText ;
+      console.log(xhr.responseText);
       clearInterval(checkstatus);
     }
     
@@ -193,5 +194,11 @@ var date = new Date();
 function HideOrderForm() {
   $('.order').css('display', 'none');
   $("body", "html").css("overflow", "auto");
+  var checkBox = document.getElementsByClassName('order-card__checkbox');
+  var dateInp = document.getElementsByClassName('order-card__date');
+  dateInp[0].value = '';
+  checkBox[0].checked = "";
+  checkBox[1].checked ="";
+  
 
 }

@@ -4,4 +4,5 @@
 {% endfor %}
 
 {% if times == 'Выходной' %}Выходной{% elif times %}
-{% for tm in times %}<p>{{tm}}</p>{% endfor %}{% endif %}
+
+{% for tm in times %}<button class="order-card__time-btn">{{tm}}</button>{% endfor %}{% endif %}
