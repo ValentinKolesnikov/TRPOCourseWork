@@ -57,8 +57,23 @@ def post(request):
                     wt = wk.saturday
                 else:
                     wt = wk.sunday
-                count = wt.split(' ')[1]
-                return render_to_response('catalog/order.html', {'times': range(int(count))})
+                tw,count = wt.split(' ')
+                if(tw=='Выходной'):
+                    return render_to_response('catalog/order.html', {'times': tw})
+                list_time = []
+                shour, sminute = (wt.split(' ')[0].split('-'))[0].split(':')
+                shour = int(shour)
+                sminute = int(sminute)
+                for x in range(int(count)):
+                    hour = int(x/2) + shour
+                    minute = (x%2)*30+sminute
+                    if minute == 60:
+                        hour+=1
+                        minute = 0
+                    if minute ==0:
+                        minute = '00'
+                    list_time.append(str(hour)+':'+str(minute))
+                return render_to_response('catalog/order.html', {'times': list_time})
 
         cat = request.POST.get('cat','')
     else:

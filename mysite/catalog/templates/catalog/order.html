@@ -3,6 +3,5 @@
     <span class="order-card__sit-count tables__sit-count">{{tb.count}}</span></div>
 {% endfor %}
 
-{% for tm in times %}
-{{tm}}
-{% endfor %}
+{% if times == 'Выходной' %}Выходной{% elif times %}
+{% for tm in times %}<p>{{tm}}</p>{% endfor %}{% endif %}
