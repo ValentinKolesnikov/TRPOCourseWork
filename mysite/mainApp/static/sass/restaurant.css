@@ -51,15 +51,24 @@ body {
 }
 
 .rest__phone {
-  width: 25%;
+  margin-top: 10px;
+}
+
+.rest__cat {
+  margin-top: 10px;
 }
 
 .rest__address {
-  width: 25%;
+  margin-top: 10px;
 }
 
 .rest__worktime {
-  width: 25%;
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .rest__btn {
@@ -101,39 +110,5 @@ body {
   margin-top: 0.5rem;
   color: rgba(0, 0, 0, 0.4);
   font-size: 1.3rem;
-}
-
-tr, td {
-  text-align: center;
-  vertical-align: middle;
-  padding: 15px;
-  empty-cells: hide;
-}
-
-.tables__block {
-  border-collapse: collapse;
-}
-
-.table {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background-color: rgba(33, 38, 44, 0.5);
-  text-align: center;
-  line-height: 25px;
-  color: #fff;
-}
-
-.table__available {
-  background-color: rgba(0, 255, 0, 0.3);
-}
-
-.table__unavailable {
-  background-color: rgba(255, 0, 0, 0.3);
-}
-
-.table__rotate {
-  -webkit-transform: rotate(-90deg);
-          transform: rotate(-90deg);
 }
 /*# sourceMappingURL=restaurant.css.map */

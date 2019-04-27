@@ -6,7 +6,13 @@
 
 {% block content %}
     {% if error %}
-    <h2>Ресторан удален или не создан</h2>
+    <div class="sorry">
+      <div class="sorry__img" style="background-image: url('/media/other/Homer.png')"></div>
+      <div class="sorry__descr">
+        <h1 class="sorry__title">Упс, что-то пошло не так :(</h1>
+        <div class="sorry__text">Заведение, которое Вы искали удалено или не создано.</div>
+      </div>
+    </div>
     {% else %}
      <div class="rest">
 
@@ -16,20 +22,23 @@
            <h1 class="rest__headline">{{rest.name}}</h1>
            <p class="rest__description">{{rest.description}}</p>
            <div class="rest__contacts">
-             <p class="rest__worktime"><i class="far fa-clock"></i>  {{rest.worktime}}</p>
+             <div class="rest__worktime"><i class="far fa-clock"></i>
+              <div>
+                <p>ПН {{week.0.0}}</p>
+                <p>ВТ {{week.1.0}}</p>
+                <p>СР {{week.2.0}}</p>
+                <p>ЧТ {{week.3.0}}</p>
+                <p>ПТ {{week.4.0}}</p>
+                <p>СБ {{week.5.0}}</p>
+                <p>ВС {{week.6.0}}</p>
+              </div>
+            </div>
              <p class="rest__phone"><i class="fas fa-phone"></i> {{rest.phone}}</p>
              <p class="rest__address"><i class="fas fa-map-marker-alt"></i> Могилев, ул. Центральная 24/a</p>
-             <p>{{rest.getcategory}}</p>
+             <p class="rest__cat">Категория: {{rest.getcategory}}</p>
            </div>
            <div>
-             <p>ПН {{week.0.0}}</p>
-             <p>ВТ {{week.1.0}}</p>
-             <p>СР {{week.2.0}}</p>
-             <p>ЧТ {{week.3.0}}</p>
-             <p>ПТ {{week.4.0}}</p>
-             <p>СБ {{week.5.0}}</p>
-             <p>ВС {{week.6.0}}</p>
-
+             
            </div>
 
            <div class="rest-card__rating rest__rating">
@@ -54,60 +63,7 @@
             <div onclick="GetTime(this)" id="{{forloop.counter0}}" class="table__window" style="background-color: green; width: 17px; height: 17px; text-align: center; display: inline-block">{{tab.count}}</div>
         {% endif %}
       {% endfor %} -->
-    <div class="time"></div>
-
-       <div class="tables">
-         <table class="tables__block">
-           <tr>
-             <td></td>
-             <td></td>
-             <th colspan="2">Можно курить</td>
-             
-           </tr>
-           <tr>
-             <td></td>
-             <td></td>
-             <td class="table__unavailable">-</td>
-             <td class="table__available">+</td>
-           </tr>
-           <tr>
-             <th class="table__rotate" rowspan="2">У окна</td>
-             <td class="table__unavailable">-</td>
-             <td class="table__unavailable">
-              {% for tab in tables %}
-              {% if not tab.smoke and not tab.window %}
-              <div onclick="GetTime(this)" id="{{forloop.counter0}}" class="table__window-smoke table">{{tab.count}}</div>
-              {% endif %}
-              {% endfor %}
-             </td>
-             <td class="table__available">
-              {% for tab in tables %}
-              {% if tab.smoke and not tab.window %}
-              <div onclick="GetTime(this)" id="{{forloop.counter0}}" class="table__window-smoke table">{{tab.count}}</div>
-              {% endif %}
-              {% endfor %}
-             </td>
-           </tr>
-           <tr>
-             
-             <td class="table__available">+</td>
-             <td class="table__available">
-              {% for tab in tables %}
-              {% if not tab.smoke and tab.window %}
-              <div onclick="GetTime(this)" id="{{forloop.counter0}}" class="table__window-smoke table">{{tab.count}}</div>
-              {% endif %}
-              {% endfor %}
-             </td>
-             <td class="table__available">
-              {% for tab in tables %}
-              {% if tab.smoke and tab.window %}
-              <div onclick="GetTime(this)" id="{{forloop.counter0}}" class="table__window-smoke table">{{tab.count}}</div>
-              {% endif %}
-              {% endfor %}
-             </td>
-           </tr>
-         </table>
-       </div>
+   
 
 
 

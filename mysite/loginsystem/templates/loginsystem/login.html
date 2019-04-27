@@ -5,18 +5,37 @@
 {% endblock %}
 
 {% block content %}
-    <div>
-        <form action="/auth/login/" method="POST">
-            {% csrf_token %}
-            <label for="username">Имя пользователя</label>
-            <input type="text" name="username" id="username">
-            <label for="password">Пароль</label>
-            <input type="password" name="password" id="password">
-            {% if login_error %}
-                <label class="error">{{ login_error }}</label>
-            {% endif %}
-            <input class="button" type="submit" value="Влететь">
-        </form>
-        <a href="/auth/register/">Регистрация</a>
+    
+    <div class="login-form auth-error">
+
+        <div class="materialContainer">
+            <div class="box">
+                <div class="title">ВХОД</div>
+                <form action="/auth/login/" method="POST">
+                    {% csrf_token %}
+                    <div class="input">
+                        <label for="username"></label>
+                        <input type="text" name="username" id="username">
+                    </div>
+
+                    <div class="input">
+                        <label for="password"></label>
+                        <input type="password" name="password" id="password">
+                    </div>
+
+                    <div class="button login">
+                        <button type="submit"><span>Войти</span> <i class="fa fa-check"></i></button>
+                    </div>
+                    {% if login_error %}
+                    <p class="error">{{ login_error }}</p>
+                    {% endif %}
+                </form>
+                <a href="/auth/register/" class="pass-forgot">Регистрация</a>
+                
+            </div>
+
+            
+        </div>
+        <div class="mask"></div>
     </div>
 {% endblock %}

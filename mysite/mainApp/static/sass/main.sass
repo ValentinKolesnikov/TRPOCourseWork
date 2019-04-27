@@ -457,7 +457,7 @@ input:-webkit-autofill
 			border: 0px solid #fff
 			border-radius: 3px
 			color: #fff
-			padding: 8px 7px
+			padding: 5px 7px
 			margin: 1px
 			cursor: pointer
 			transition: 0.1s all ease
@@ -473,4 +473,36 @@ input:-webkit-autofill
 		
 
 
+.sorry
+	position: relative
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-around
+	padding: 50px
+	&__img
+		width: 380px
+		height: 380px
+		background-repeat: no-repeat
+		background-size: cover
+	&__descr
+		width: 65%
+	&__title
+		font-size: 5rem
+		margin: 30px 0 0 30px
+	&__text
+		font-size: 3rem
+		margin: 30px 0 0 30px
+		width: 60%
 
+
+.auth-error
+	display: block !important
+	background-color: rgba(0,0,0,0.5) !important
+	.materialContainer
+		position: relative !important
+	.mask
+		position: relative !important
+		
+.error
+	color: red
+	text-align: center
