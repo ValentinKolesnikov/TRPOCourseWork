@@ -137,6 +137,9 @@ function GetTimesTable(btn)
   var formData = new FormData();
   formData.append('idtable',btn.getAttribute("id"));
   var date = $('#date')[0].value;
+  if ($('.selectedtable')[0])
+    $('.selectedtable')[0].setAttribute('class', btn.getAttribute('class').replace(' selectedtable',''));
+  btn.setAttribute('class', btn.getAttribute('class')+' selectedtable');
   if (date)
     formData.append('date', $('#date')[0].value);
   else{
@@ -151,7 +154,6 @@ function GetTimesTable(btn)
     if (xhr.status==200)
     {
       document.getElementsByClassName('order-card__time-block')[0].innerHTML = xhr.responseText ;
-      console.log(xhr.responseText);
       clearInterval(checkstatus);
     }
     
@@ -190,15 +192,33 @@ function MakeOrder(btn){
 
 var date = new Date();
 
+function SelectTime(btn){
+  if ($('#selectedtime')[0])
+    $('#selectedtime')[0].removeAttribute('id');
+  btn.setAttribute('id','selectedtime');
+}
+
+function SendOrder(){
+  var dateorder = $('#date')[0];
+  var tableorder = $('.selectedtable')[0];
+  var timeorder = $('#selectedtime')[0];
+  if(!dateorder||!tableorder||!timeorder)
+    return;
+  console.log(dateorder.value);
+  console.log(tableorder.id);
+  console.log(timeorder.innerHTML);
+  console.log($('.order-card__offer')[0].value)
+
+}
+
+
 
 function HideOrderForm() {
   $('.order').css('display', 'none');
   $("body", "html").css("overflow", "auto");
-  var checkBox = document.getElementsByClassName('order-card__checkbox');
-  var dateInp = document.getElementsByClassName('order-card__date');
-  dateInp[0].value = '';
-  checkBox[0].checked = "";
-  checkBox[1].checked ="";
+  $('.order-card__time-block')[0].innerHTML = "";
+
+
   
 
 }

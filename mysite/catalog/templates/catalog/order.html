@@ -5,4 +5,4 @@
 
 {% if times == 'Выходной' %}Выходной{% elif times %}
 
-{% for tm in times %}<button class="order-card__time-btn">{{tm}}</button>{% endfor %}{% endif %}
+{% for tm in times %}<button class="order-card__time-btn" onclick="SelectTime(this)">{{tm}}</button>{% endfor %}{% endif %}
