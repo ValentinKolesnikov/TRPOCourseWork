@@ -60,7 +60,18 @@
   font-weight: bold;
   padding: 10px 25px;
   text-align: center;
+  cursor: pointer;
   font-size: 1.5rem;
+  -webkit-transition: ease all 0.2s;
+  transition: ease all 0.2s;
+  border-radius: 20px;
+}
+
+.rest-card__btn:hover {
+  background-color: #fff;
+  color: #21262C;
+  -webkit-transition: ease all 0.2s;
+  transition: ease all 0.2s;
 }
 
 .rest-card__rating a {
@@ -69,6 +80,13 @@
 
 .rest-card__rating {
   margin-top: 10px;
+}
+
+.rest-card__text {
+  padding: 0 7px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .page-headline, .rest-selection__headline {

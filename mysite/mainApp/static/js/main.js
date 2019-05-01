@@ -179,14 +179,20 @@ function ChangeValue()
 
 
 function MakeOrder(btn){
-  $('.order').css('display', 'block');
-  $("body", "html").css("overflow", "hidden");
-  var id = btn.getAttribute('id');
-  $('.order')[0].setAttribute('id', id)
-  var window = ($('#is-window')[0].checked);
-  var smoke = ($('#is-smoke')[0].checked);
+  var name = document.getElementById('user');
+  if(name){
+    $('.order').css('display', 'block');
+    $("body", "html").css("overflow", "hidden");
+    var id = btn.getAttribute('id');
+    $('.order')[0].setAttribute('id', id)
+    var window = ($('#is-window')[0].checked);
+    var smoke = ($('#is-smoke')[0].checked);
 
-  GetTables(id,window,smoke);
+    GetTables(id,window,smoke);
+  }else{
+     $(".login-form").css("display", "block");
+     $("body", "html").css("overflow", "hidden");
+  }
 
   
 }

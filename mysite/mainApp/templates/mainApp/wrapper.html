@@ -98,9 +98,11 @@
 					<li class="nav-bar__item item">
 						<a href="/catalog" class="nav-bar__link underline-hover">Поиск заведений</a>
 					</li>
+					{% if user.id == 1 or user.id == 2 %}
 					<li class="nav-bar__item item">
 						<a href="/admin" class="nav-bar__link underline-hover">Админка</a>
 					</li>
+					{% endif %}
 					<li class="nav-bar__item item">
 
 					</li>
@@ -140,7 +142,7 @@
 			<div class="main-footer__logo">
 
 			</div>
-			<div class="main-footer__nav">
+			<!-- <div class="main-footer__nav">
 				<ul class="main-footer__list list">
 					<li class="main-footer__item">
 						<a class="main-footer__link list__headline" href="">EZtable</a>
@@ -158,7 +160,7 @@
 						<a href="#" class="main-footer__link"><i class="fas fa-book-reader category-icon"></i>О нас</a>
 					</li>
 				</ul>
-			</div>
+			</div> -->
 			<div class="main-footer__category">
 				<ul class="main-footer__list list">
 					<li class="main-footer__item">
@@ -166,28 +168,22 @@
 					</li>
 
 					<li class="main-footer__item item">
-						<a href="/catalog/?page=1&cat=PC" class="main-footer__link"><i
-								class="fas fa-pizza-slice category-icon"></i>Пиццерии</a>
+						<a href="/catalog/?page=1&cat=PC" class="main-footer__link">Пиццерии</a>
 					</li>
 					<li class="main-footer__item item">
-						<a href="/catalog/?page=1&cat=RS" class="main-footer__link"><i
-								class="fas fa-concierge-bell category-icon"></i>Рестораны</a>
+						<a href="/catalog/?page=1&cat=RS" class="main-footer__link">Рестораны</a>
 					</li>
 					<li class="main-footer__item item">
-						<a href="#" class="main-footer__link"><i
-								class="fas fa-cheese category-icon"></i>Кондитерские</a>
+						<a href="/catalog/?page=1&cat=BG" class="main-footer__link">Бургерные</a>
 					</li>
 					<li class="main-footer__item item">
-						<a href="#" class="main-footer__link"><i
-								class="fas fa-glass-martini-alt category-icon"></i>Кафе-бары</a>
+						<a href="/catalog/?page=1&cat=CF" class="main-footer__link">Кафе</a>
 					</li>
 					<li class="main-footer__item item">
-						<a href="#" class="main-footer__link"><i class="fas fa-microphone-alt category-icon"></i>Караоке
-							клубы</a>
+						<a href="/catalog/?page=1&cat=BR" class="main-footer__link">Бары</a>
 					</li>
 					<li class="main-footer__item item">
-						<a href="/catalog/?page=1&cat=BG" class="main-footer__link"><i
-								class="fas fa-hamburger category-icon"></i>Бургерные</a>
+						<a href="/catalog/?page=1&cat=KR" class="main-footer__link">Караоке</a>
 					</li>
 				</ul>
 			</div>

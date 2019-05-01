@@ -31,6 +31,7 @@
 		text-align: center
 		color: darken($white-font, 30%)
 		padding: 0 10px
+		
 	&__btn
 		margin: 20px auto
 		border: none
@@ -39,14 +40,23 @@
 		font-weight: bold
 		padding: 10px 25px
 		text-align: center
-		
+		cursor: pointer
 		font-size: 1.5rem
+		transition: ease all 0.2s
+		border-radius: 20px
+		&:hover
+			background-color: #fff
+			color: $header
+			transition: ease all 0.2s
 	&__rating a
 		color: $white-font
 	&__rating
 		margin-top: 10px
-		
-		
+	&__text
+		padding: 0 7px
+		white-space: nowrap
+		overflow: hidden
+		text-overflow: ellipsis
 
 
 .page-headline

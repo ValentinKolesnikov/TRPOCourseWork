@@ -1,7 +1,8 @@
 <div class="rest-selection__list rest-list">
     {% for rest in list %}
     <div class="rest-card card">
-      <div class="rest-card__image card__image"><img src="{{rest.photo.url}}" alt="{{rest.name}}"></div>
+            <div class="rest-card__image card__image"><a href="/restaurant/{{rest.id}}" class="text-dark"><img src="{{rest.photo.url}}" alt="{{rest.name}}"></a></div>
+      
       
       <div class="rest-card__headline card__name"> 
         <a href="/restaurant/{{rest.id}}" class="text-dark">{{rest.name}}</a>
