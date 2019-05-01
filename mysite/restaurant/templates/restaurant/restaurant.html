@@ -14,8 +14,32 @@
       </div>
     </div>
     {% else %}
+    
      <div class="rest">
+      <div class="order rest-order">
+        <div class="order-card rest-order__card">
+          <h2>Выберите день</h2>
+          <input autocomplete="off" onmousewheel="ChangeDate(this)" type="text" class="datepicker-here order-card__date"
+            id="date" placeholder="день месяц год">
+          <h2>Выберите столик</h2>
+          <div class="order-card__filter">
 
+            <lable for="is-smoke">Можно курить<input onclick="ChangeValue()" name="is-smoke" id="is-smoke"
+                class="order-card__checkbox" type="checkbox"></lable>
+            <lable for="is-window">У окна<input onclick="ChangeValue()" name="is-window" id="is-window"
+                class="order-card__checkbox" type="checkbox"></lable>
+          </div>
+
+          <div class="order-card__tables-result tables">
+          </div>
+          <div class="order-card__time-block">
+
+          </div>
+          <textarea class="order-card__offer" placeholder="Ваши дополнительные пожелания"></textarea>
+          <button class="order-card__send-btn btn" onclick="SendOrder()">Забронировать</button>
+        </div>
+        
+      </div>
        <div class="rest__card">
          <img class="rest__image" src="{{rest.photo.url}}" s alt="{{rest.Username}}" data-holder-rendered="true">
          

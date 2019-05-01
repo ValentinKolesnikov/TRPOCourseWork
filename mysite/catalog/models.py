@@ -128,11 +128,12 @@ class Table(models.Model):
         return self.restaurant.name+' ' +str(self.count)
 
 class TimeTable(models.Model):
-    start = models.DateTimeField()
-    end = models.DateTimeField()
-    reservation = models.BooleanField(default=False)
+    time = models.DateTimeField()
+    reservation = models.BooleanField(default=True)
     table = models.ForeignKey(Table, on_delete=models.CASCADE)
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE, default=None)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    text = models.CharField(max_length=100, default = '')
     
     def __str__(self):
         return self.table.__str__()

@@ -10,6 +10,23 @@ from datetime import datetime
 @csrf_exempt
 def post(request):
     if request.POST:
+        if request.POST.get('text'):
+            dateorder = request.POST.get('date')
+            dayorder, monthorder, yearorder = dateorder.split('.')
+            tableorder = request.POST.get('table')
+            timeorder = request.POST.get('time')
+            hourorder, minuteorder = timeorder.split(':')
+            textorder = request.POST.get('text')
+            restaurantorder = request.POST.get('restaurant')
+
+            order = TimeTable(
+            time = datetime(int(yearorder),int(monthorder),int(dayorder),int(hourorder),int(minuteorder),0), 
+            table = Table.objects.get(id = int(tableorder)), 
+            text = textorder, user = request.user, restaurant = Restaurant.objects.get(id = int(restaurantorder)))
+            order.save()
+            return render_to_response('catalog/order.html', {})
+            
+        
         if request.POST.get('id') or request.POST.get('idtable'):
             if request.POST.get('window'):
                 rest = Restaurant.objects.get(id = request.POST.get('id'))
@@ -64,7 +81,14 @@ def post(request):
                 shour, sminute = (wt.split(' ')[0].split('-'))[0].split(':')
                 shour = int(shour)
                 sminute = int(sminute)
-                for x in range(int(count)):
+                booktables = TimeTable.objects.filter(table = table)
+                newbooktable = []
+                for x in booktables:
+                    if x.time.day == int(day) and x.time.month == int(month) and x.time.year == int(years):
+                        newbooktable.append(str(x.time.hour)+':'+str(x.time.minute))
+
+
+                for x in range(int(count)-1):
                     hour = int(x/2) + shour
                     minute = (x%2)*30+sminute
                     if minute == 60:
@@ -73,7 +97,7 @@ def post(request):
                     if minute ==0:
                         minute = '00'
                     list_time.append(str(hour)+':'+str(minute))
-                return render_to_response('catalog/order.html', {'times': list_time})
+                return render_to_response('catalog/order.html', {'times': list_time,'booktable':newbooktable})
 
         cat = request.POST.get('cat','')
     else:

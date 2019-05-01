@@ -187,6 +187,7 @@ function MakeOrder(btn){
   var smoke = ($('#is-smoke')[0].checked);
 
   GetTables(id,window,smoke);
+
   
 }
 
@@ -204,11 +205,17 @@ function SendOrder(){
   var timeorder = $('#selectedtime')[0];
   if(!dateorder||!tableorder||!timeorder)
     return;
-  console.log(dateorder.value);
-  console.log(tableorder.id);
-  console.log(timeorder.innerHTML);
-  console.log($('.order-card__offer')[0].value)
+  var formData = new FormData();
+  formData.append('date', dateorder.value);
+  formData.append('table', tableorder.id);
+  formData.append('time', timeorder.innerHTML);
+  formData.append('text', $('.order-card__offer')[0].value);
+  formData.append('restaurant', $('.order')[0].getAttribute('id'))
 
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "/catalog/");
+  xhr.send(formData);
+  HideOrderForm();
 }
 
 
