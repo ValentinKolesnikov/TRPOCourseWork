@@ -85,7 +85,7 @@ def post(request):
                 newbooktable = []
                 for x in booktables:
                     if x.time.day == int(day) and x.time.month == int(month) and x.time.year == int(years):
-                        newbooktable.append(str(x.time.hour)+':'+str(x.time.minute))
+                        newbooktable.append(str(x.time.hour+3)+':'+str('00' if x.time.minute==0 else '30'))
 
 
                 for x in range(int(count)-1):
@@ -97,7 +97,7 @@ def post(request):
                     if minute ==0:
                         minute = '00'
                     list_time.append(str(hour)+':'+str(minute))
-                return render_to_response('catalog/order.html', {'times': list_time,'booktable':newbooktable})
+                return render_to_response('catalog/order.html', {'times': list_time,'booktables':newbooktable})
 
         cat = request.POST.get('cat','')
     else:

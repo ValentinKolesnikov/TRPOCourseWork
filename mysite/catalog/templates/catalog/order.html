@@ -4,7 +4,8 @@
 {% endfor %}
 
 {% if times == 'Выходной' %}Выходной{% elif times %}
-
-{% for tm in times %}<button class="order-card__time-btn" onclick="SelectTime(this)">{{tm}}</button>{% endfor %}{% endif %}
+{% for tm in times %}
+<button class="order-card__time-btn" {% if tm in booktables %}style="background-color: red;"{% else %}onclick="SelectTime(this)"{% endif %}>{{tm}}</button>
+{% endfor %}{% endif %}
 
 
