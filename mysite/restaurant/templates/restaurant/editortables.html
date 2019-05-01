@@ -1,0 +1,24 @@
+{% extends "mainApp/wrapper.html" %}
+
+{% block title %}
+Редактирование столиков
+{% endblock %}
+
+{% block content %}
+<div class="register">
+    <div class="register-box">
+        <h2>Удаление столиков</h2>
+        <div class="table">
+            {% for tb in tables %}
+                <div>{{tb.count}} {{tb.smoke}} {{tb.window}} <div id="{{tb.id}}" onclick="DeleteTable(this)">Удалить</div><br></div>
+            {% endfor %}
+        </div>
+        <div class="addtable">
+            <h2>Добавление столиков</h4>
+			{% csrf_token %}
+            {{form.as_p}}
+            <input class="register__btn btn" onclick="AddTables()" type="submit" value="Добавить"/>
+        </div>
+    </div>
+</div>
+{% endblock %}

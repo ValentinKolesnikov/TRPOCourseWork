@@ -177,6 +177,31 @@ function ChangeValue()
   GetTables(id, window, smoke);
 }
 
+function AddTables(){
+  var formData = new FormData();
+  formData.append('count', $('#id_count')[0].value);
+  formData.append('smoke', $('#id_smoke')[0].checked);
+  formData.append('window', $('#id_window')[0].checked);
+  formData.append('counttables', $('#id_counttables')[0].value);
+  formData.append('csrfmiddlewaretoken', $('input[name=csrfmiddlewaretoken]')[0].value);
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "/restaurant/tables/");
+  xhr.send(formData);
+  var block = $('.table')[0];
+  for(i=0;i< Number($('#id_counttables')[0].value); i++)
+    block.innerHTML+= '<p>'+ $('#id_count')[0].value+" " +$('#id_smoke')[0].checked+" "+$('#id_window')[0].checked+'</p>';
+}
+
+function DeleteTable(btn){
+  var formData = new FormData();
+  formData.append('id', btn.getAttribute('id'));
+  formData.append('csrfmiddlewaretoken', $('input[name=csrfmiddlewaretoken]')[0].value);
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "/restaurant/tables/");
+  xhr.send(formData);
+  btn.parentNode.parentNode.removeChild(btn.parentNode);
+}
+
 
 function MakeOrder(btn){
   var name = document.getElementById('user');

@@ -1,5 +1,5 @@
 from django import forms
-from catalog.models import Restaurant
+from catalog.models import Restaurant, Table
 
 
 class EditorRestaurant(forms.ModelForm):   
@@ -40,3 +40,29 @@ class EditorRestaurant(forms.ModelForm):
     class Meta:
         model = Restaurant
         fields = ('name', 'description', 'worktime', 'category','phone',  'photo')
+
+
+class AddTable(forms.ModelForm):
+    count =  forms.IntegerField(
+        label = 'Количество мест',
+        max_value=30,
+        min_value=1,
+    )
+
+    smoke = forms.BooleanField(
+        label = 'Можно ли курить',
+    )
+
+    window = forms.BooleanField(
+        label = 'У окна',
+    )
+
+    counttables = forms.IntegerField(
+        label = 'Количество столиков',
+        max_value=20,
+        min_value=1,
+    )
+    class Meta:
+        model = Table
+        fields = ('count', 'smoke', 'window', 'counttables')
+    

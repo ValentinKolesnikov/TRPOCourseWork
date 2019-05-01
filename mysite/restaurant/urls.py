@@ -7,4 +7,5 @@ urlpatterns = [
     path('like', views.like,),
     path('create/', views.create),
     path('editor/', views.editor),
+    path('tables/', views.editortables),
 ]

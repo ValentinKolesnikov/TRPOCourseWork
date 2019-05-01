@@ -6,7 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.middleware import csrf
 import os, os.path
 from django.http import HttpResponse, HttpResponseRedirect
-from .forms import EditorRestaurant
+from .forms import EditorRestaurant, AddTable
 from mysite.settings import BASE_DIR
 
 import cgi
@@ -77,6 +77,40 @@ def create(request):
         rest.save()
         return redirect('/user/'+str(owner))
     return render(request, 'restaurant/create.html', args)
+
+
+def editortables(request):
+    if not request.user.is_authenticated:
+        return redirect('/auth/login/')
+    rest = Restaurant.objects.filter(owner = request.user.id)[0]
+    args = {}
+    args['csrf_token'] = csrf.get_token(request)
+    args['tables'] = Table.objects.filter(restaurant = rest)
+    form = AddTable(initial={'count':4, 'counttables':1})
+    args['form'] = form
+    if request.POST:
+        if request.POST.get('id'):
+            id = int(request.POST.get('id'))
+            if rest == Table.objects.get(id = id).restaurant:
+                Table.objects.get(id = id).delete()
+            return render_to_response('restaurant/editortables.html',args)
+
+            
+        count = int(request.POST.get('count'))
+        smoke = True if request.POST.get('smoke')=='true' else False
+        window = True if request.POST.get('window')=='true' else False
+        counttable = int(request.POST.get('counttables'))
+        for x in range(counttable):
+            table = Table(count = count, smoke = smoke, window = window, restaurant = rest)
+            table.save()
+        return render_to_response('restaurant/editortables.html',args)
+        
+        
+
+    return render(request,'restaurant/editortables.html', args)
+
+    
+
 
 def editor(request):
     if not request.user.is_authenticated:
