@@ -73,7 +73,8 @@
              <p>Добавлен: {{rest.date|date:"d-m-Y"}}</p>
              <p>Владелец: <a href="/user/{{rest.owner}}">{{owner}}</a></p>
            {% if user.id == rest.owner %}<a href="/restaurant/editor" class="btn rest__btn">Редактировать
-             данные</a>{% endif %}
+             данные</a> <a href="/restaurant/tables" class="btn rest__btn">Редактировать
+              столики</a> {% endif %}
        </div>
 
       <!-- {% for tab in tables %}
