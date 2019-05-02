@@ -626,6 +626,7 @@ input:-webkit-autofill {
 
 .order-card__send-btn {
   margin-top: 15px;
+  cursor: pointer;
 }
 
 .order-card__time-block {

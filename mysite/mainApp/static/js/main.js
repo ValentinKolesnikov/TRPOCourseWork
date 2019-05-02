@@ -169,6 +169,9 @@ function ChangeDate(btn){
 function ChangeValue()
 {
   var id = $('.order')[0].getAttribute('id');
+  if(!id)
+    id = $('.rest-order').getAttribute('id');
+  console.log(id);
   var window = ($('#is-window')[0].checked);
   var smoke = ($('#is-smoke')[0].checked);
   document.getElementsByClassName('order-card__time-block')[0].innerHTML = "";
@@ -246,7 +249,19 @@ function SendOrder(){
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "/catalog/");
   xhr.send(formData);
-  HideOrderForm();
+  if(!$('.rest-order')[0]){
+    HideOrderForm();
+  }
+  else{
+    $('.order-card__time-block')[0].innerHTML = "";
+    $('.order-card__date')[0].value = "";
+    $('.order-card__checkbox')[0].checked = false;
+    $('.order-card__checkbox')[1].checked = false;
+    $('.order-card__tables-result')[0].innerHTML = '';
+    $('.order-card__offer')[0].value = '';
+  }
+
+  
 }
 
 
