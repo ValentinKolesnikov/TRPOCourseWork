@@ -174,9 +174,3 @@ def like(request):
             like = Like(user = request.user, restaurant = Restaurant.objects.get(id = id))
             like.save()
         return redirect(request.META['HTTP_REFERER'])
-
-
-#var formData = new FormData(document.forms.postcomment);
-# var xhr = new XMLHttpRequest();
-# xhr.open("POST", "http://127.0.0.1:8000/restaurant/1");
-# xhr.send(formData);

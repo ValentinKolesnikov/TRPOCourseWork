@@ -94,7 +94,6 @@ function newposts(){
     else if(xhr.status!=0){
       clearInterval(checkstatus);
     }
-     
   },10);
 
 }
@@ -162,20 +161,15 @@ function GetTimesTable(btn)
     }
   },10);
 }
-function ChangeDate(btn){
-  console.log(btn.value);
-}
 
 function ChangeValue()
 {
   var id = $('.order')[0].getAttribute('id');
   if(!id)
     id = $('.rest-order').getAttribute('id');
-  console.log(id);
   var window = ($('#is-window')[0].checked);
   var smoke = ($('#is-smoke')[0].checked);
   document.getElementsByClassName('order-card__time-block')[0].innerHTML = "";
-
 
   GetTables(id, window, smoke);
 }
@@ -260,8 +254,6 @@ function SendOrder(){
     $('.order-card__tables-result')[0].innerHTML = '';
     $('.order-card__offer')[0].value = '';
   }
-
-  
 }
 
 
@@ -270,8 +262,4 @@ function HideOrderForm() {
   $('.order').css('display', 'none');
   $("body", "html").css("overflow", "auto");
   $('.order-card__time-block')[0].innerHTML = "";
-
-
-  
-
 }

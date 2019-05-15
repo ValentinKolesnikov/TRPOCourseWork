@@ -2,8 +2,6 @@
     {% for rest in list %}
     <div class="rest-card card">
             <div class="rest-card__image card__image"><a href="/restaurant/{{rest.id}}" class="text-dark"><img src="{{rest.photo.url}}" alt="{{rest.name}}"></a></div>
-      
-      
       <div class="rest-card__headline card__name"> 
         <a href="/restaurant/{{rest.id}}" class="text-dark">{{rest.name}}</a>
       </div>
@@ -23,7 +21,6 @@
 </div>
  
 <div class="pagination" >
-        <!-- <a href="?page=1" ></a> -->
     {% if list.has_previous %}
         <a class="pagination__prev-page" href="?page={{ list.previous_page_number }}{% if cat %}&cat={{cat}}{% endif %}">Предыдущая</a>
     {% else %}    
@@ -37,5 +34,4 @@
     {% else %}
         <a style="visibility: hidden" class="pagination__next-page" href="">Следующая</a>
     {% endif %}
-    <!-- <a href="?page={{ list.paginator.num_pages }}"></a> -->
 </div>

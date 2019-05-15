@@ -77,24 +77,6 @@
               столики</a> {% endif %}
        </div>
 
-      <!-- {% for tab in tables %}
-        {% if tab.smoke and tab.window %}
-            <div onclick="GetTime(this)" id="{{forloop.counter0}}" class="table__window-smoke" style="background-color: green; width: 17px; height: 17px; text-align: center; display: inline-block">{{tab.count}}</div>
-        {% endif %}
-        {% if tab.smoke and not tab.window %}
-            <div onclick="GetTime(this)" id="{{forloop.counter0}}" class="table__smoke" style="background-color: green; width: 17px; height: 17px; text-align: center; display: inline-block">{{tab.count}}</div>
-        {% endif %}
-        {% if not tab.smoke and tab.window %}
-            <div onclick="GetTime(this)" id="{{forloop.counter0}}" class="table__window" style="background-color: green; width: 17px; height: 17px; text-align: center; display: inline-block">{{tab.count}}</div>
-        {% endif %}
-      {% endfor %} -->
-   
-
-
-
-
-
-    
           <div id="comments" class="comments">
             <h2 class="comments__headline">Комментарии</h2>
             <form name="postcomment">
@@ -122,6 +104,5 @@
          </div>
       {% endif %}
    
-    
 {% endif %}
 {% endblock %}

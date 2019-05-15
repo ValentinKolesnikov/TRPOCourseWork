@@ -9,6 +9,3 @@ def index(request):
     args['count'] = count
 
     return render(request,'mainApp/homePage.html',args)
-
-def contact(request):
-    return render(request,'mainApp/basic.html', {'values':['Вопросы - звоните','375296497315']})

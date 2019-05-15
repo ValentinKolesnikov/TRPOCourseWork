@@ -17,19 +17,11 @@
 	<link rel="stylesheet" href="{% static 'sass/user.css' %}">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-	<!-- <link rel="stylesheet" type="text/css" href="{% static 'additions/slick-1.8.1/slick-1.8.1/slick/slick.css' %}" />
-	<link rel="stylesheet" type="text/css" href="{% static 'additions/slick-1.8.1/slick-1.8.1/slick/slick-theme.css' %}" /> -->
 	<link rel="stylesheet" href="{% static 'fonts/AvenirNextCyr/stylesheet.css' %}">
 	<link rel="stylesheet" href="{% static 'node_modules/air-datepicker/dist/css/datepicker.min.css' %}">
-
-
-
 </head>
-
 <body>
-	
 	<div class="login-form">
-
 		<div class="materialContainer">
 			<div class="box">
 				<div class="title">ВХОД</div>
@@ -39,21 +31,16 @@
 						<label for="username">Логин</label>
 						<input type="text" name="username" id="username">
 					</div>
-
 					<div class="input">
 						<label for="password">Пароль</label>
 						<input type="password" name="password" id="password">
 					</div>
-
 					<div class="button login">
 						<button type="submit"><span>Войти</span> <i class="fa fa-check"></i></button>
 					</div>
-
 				</form>
 				<a href="/auth/register/" class="pass-forgot">Регистрация</a>
-
 			</div>
-
 
 		</div>
 		<div class="mask"></div>
@@ -62,8 +49,6 @@
 
 	<header class="top-header">
 		<div class="top-header__wrapper width-limit">
-
-
 			<div class="top-header__nav-bar nav-bar">
 				<ul class="nav-bar__list list">
 					<li class="nav-bar__item item">
@@ -80,9 +65,7 @@
 					</li>
 					{% endif %}
 					<li class="nav-bar__item item">
-
 					</li>
-
 				</ul>
 			</div>
 			<div class="right-side">
@@ -108,7 +91,6 @@
 
 	<div class="content-section">
 		{% block content %}
-
 		{% endblock %}
 	</div>
 
@@ -118,25 +100,6 @@
 			<div class="main-footer__logo">
 
 			</div>
-			<!-- <div class="main-footer__nav">
-				<ul class="main-footer__list list">
-					<li class="main-footer__item">
-						<a class="main-footer__link list__headline" href="">EZtable</a>
-					</li>
-					<li class="main-footer__item item">
-						<a href="#" class="main-footer__link"><i
-								class="fas fa-search-plus category-icon"></i>Расширенный
-							поиск</a>
-					</li>
-					<li class="main-footer__item item">
-						<a href="#" class="main-footer__link"><i class="fas fa-star category-icon"></i>Популярные
-							заведения</a>
-					</li>
-					<li class="main-footer__item item">
-						<a href="#" class="main-footer__link"><i class="fas fa-book-reader category-icon"></i>О нас</a>
-					</li>
-				</ul>
-			</div> -->
 			<div class="main-footer__category">
 				<ul class="main-footer__list list">
 					<li class="main-footer__item">
@@ -172,8 +135,6 @@
 		</div>
 	</footer>
 	<a href="#top" class="arrow-up"><i class="fas fa-arrow-up"></i></a>
-
-
 
 	<script src="{% static 'js/jQuery.js' %}"></script>
 	<script src="{% static 'js/login-form.js' %}"></script>
