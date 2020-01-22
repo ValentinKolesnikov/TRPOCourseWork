@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response, redirect, render
+from django.shortcuts import redirect, render
 from django.contrib import auth
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
@@ -19,7 +19,7 @@ def login(request):
             return redirect(request.META['HTTP_REFERER'])
         else:
             args['login_error'] = 'Попробуйте еще'
-            return render_to_response('loginsystem/login.html', args)
+            return render(request, 'loginsystem/login.html', args)
     else:
         return render(request,'loginsystem/login.html', args)
 

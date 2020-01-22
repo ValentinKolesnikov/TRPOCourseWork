@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>{% block title %} {% endblock %}</title>
-	{%  load staticfiles %}
+	{% load static %}
 
 	<link rel="stylesheet" href="{% static 'sass/search-page.css' %}">
 	<link rel="stylesheet" href="{% static 'sass/main.css' %}">
@@ -70,14 +70,14 @@
 			</div>
 			<div class="right-side">
 				<ul>
-					<li>
+					<!-- <li>
 						<div class="top-header__search search">
 							<form action="">
 								<input placeholder="Поиск" class="search__input" type="text">
 								<button class="search__btn" type="submit"><i class="fas fa-search"></i></button>
 							</form>
 						</div>
-					</li>
+					</li> -->
 					<li>
 						{% block auth %}
 						{% include "mainApp/includes/login_panel.html" %}

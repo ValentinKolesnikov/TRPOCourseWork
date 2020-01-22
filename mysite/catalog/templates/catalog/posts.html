@@ -28,7 +28,7 @@
         <h2 class="rest-selection__headline">Поиск заведения</h2>
         <div class="rest-selection__ext-search ext-search ">
             <div class="ext-search__fields">
-                <input placeholder="Название заведения" class="ext-search__rest-name search-input" type="text">
+                <!-- <input placeholder="Название заведения" class="ext-search__rest-name search-input" type="text"> -->
                 
                 <select class="ext-search__category  search-input"  onchange="newposts()">
                   <option value="" class="select-default">Выберите категорию</option>
@@ -45,20 +45,19 @@
           {% for rest in list %}
           <div class="rest-card card">
             <div class="rest-card__image card__image"><a href="/restaurant/{{rest.id}}" class="text-dark"><img src="{{rest.photo.url}}" alt="{{rest.name}}"></a></div>
-            
-            <div class="rest-card__headline card__name"> 
-              <a href="/restaurant/{{rest.id}}" class="text-dark">{{rest.name}}</a>
-            </div>
-               
             <div class="rest-card__description card__descr">
+              <div class="rest-card__headline card__name"> 
+                <a href="/restaurant/{{rest.id}}" class="text-dark">{{rest.name}}</a>
+              </div>
               <div class="rest-card__text">{{rest.description}}</div>
               <div class="rest-card__rating">
                 <p id="{{rest.id}}"
                   {% for like in likes %}{% if like.restaurant.id == rest.id %}class="like-added"
                   {% endif %}{% endfor %}><i class="fas fa-heart" onclick="like(this)" ></i> <span class="mark">{{rest.mark}}</span></p>
                 </div>
+                <button class="rest-card__btn" id="{{rest.id}}" onclick="MakeOrder(this);">Забронировать</button>
+
             </div>
-            <button class="rest-card__btn" id="{{rest.id}}" onclick="MakeOrder(this);">Забронировать</button>
           </div>
           {% endfor %}
           

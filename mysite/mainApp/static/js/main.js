@@ -105,7 +105,30 @@ window.onload = function(){
 
     minDate: now,
   });
+
+  
 }
+// var target = document.getElementsByClassName("main-footer")[0];
+// var card = document.getElementsByClassName("rest-order__card")[0];
+// var cardPos;
+// var targetPos = target.offsetTop;
+// var winHeight = $(window).height();
+// var scrollToElem = targetPos - winHeight;
+// $(window).scroll(function(){
+//   var winScrollTop = $(this).scrollTop();
+//   var cardBottomPoint = card.getBoundingClientRect().y + card.getBoundingClientRect().height;
+//   var targetTopPoint = target.getBoundingClientRect().y;
+//   console.log(card.getBoundingClientRect().y + card.getBoundingClientRect().height)
+//   console.log(target.getBoundingClientRect().y)
+//   if(targetTopPoint < cardBottomPoint){
+//     card.style.position = "absolute";
+//     card.style.bottom = "0";
+//   }
+//   else if(targetTopPoint > cardBottomPoint){
+//     card.style.position = "";
+//     card.style.bottom = "";
+//   }
+// });
 
 
 function GetTables(id, window, smoke)

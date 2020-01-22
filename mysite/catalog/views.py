@@ -1,4 +1,4 @@
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.models import User
 from catalog.models import Restaurant,Like, Table, TimeTable, Week
@@ -24,7 +24,7 @@ def post(request):
             table = Table.objects.get(id = int(tableorder)), 
             text = textorder, user = request.user, restaurant = Restaurant.objects.get(id = int(restaurantorder)))
             order.save()
-            return render_to_response('catalog/order.html', {})
+            return render(request, 'catalog/order.html', {})
             
         
         if request.POST.get('id') or request.POST.get('idtable'):
@@ -43,7 +43,7 @@ def post(request):
                 for tb in tables:
                     if tb.window == window and tb.smoke == smoke:
                         goodtable.append(tb)
-                return render_to_response('catalog/order.html', {'tables':goodtable})
+                return render(request, 'catalog/order.html', {'tables':goodtable})
             elif request.POST.get('time'):
                 day, month, years = request.POST.get('date').split('.')
                 date = datetime(int(years), int(month),int(day))
@@ -51,7 +51,7 @@ def post(request):
                 table = Table.objects.get(id = request.POST.get('idtable'))
                 rest = Restaurant.objects.get(id = request.POST.get('id'))
                 wk = Week.objects.get(restaurant = rest)
-                return render_to_response('catalog/order.html', {})
+                return render(request, 'catalog/order.html', {})
             else:
                 table = Table.objects.get(id = request.POST.get('idtable'))
                 day, month, years = request.POST.get('date').split('.')
@@ -76,7 +76,7 @@ def post(request):
                     wt = wk.sunday
                 tw,count = wt.split(' ')
                 if(tw=='Выходной'):
-                    return render_to_response('catalog/order.html', {'times': tw})
+                    return render(request, 'catalog/order.html', {'times': tw})
                 list_time = []
                 shour, sminute = (wt.split(' ')[0].split('-'))[0].split(':')
                 shour = int(shour)
@@ -97,7 +97,7 @@ def post(request):
                     if minute ==0:
                         minute = '00'
                     list_time.append(str(hour)+':'+str(minute))
-                return render_to_response('catalog/order.html', {'times': list_time,'booktables':newbooktable})
+                return render(request,'catalog/order.html', {'times': list_time,'booktables':newbooktable})
 
         cat = request.POST.get('cat','')
     else:

@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect, render_to_response
+from django.shortcuts import render,redirect
 from django.db.models import Max
 from catalog.models import Restaurant, Comment, Like, Table, TimeTable, Week
 from django.contrib.auth.models import User
@@ -33,7 +33,7 @@ def restaurant(request, id=None):
                 idtable = request.POST.get('id','')
                 times = TimeTable.objects.filter(table = args['tables'][int(idtable)])
                 args['times'] = times
-                return render_to_response('restaurant/time.html',args)
+                return render(request, 'restaurant/time.html',args)
                 
         comments = Comment.objects.filter(restaurant=id)
         for x in comments:
@@ -93,7 +93,7 @@ def editortables(request):
             id = int(request.POST.get('id'))
             if rest == Table.objects.get(id = id).restaurant:
                 Table.objects.get(id = id).delete()
-            return render_to_response('restaurant/editortables.html',args)
+            return render(request, 'restaurant/editortables.html',args)
 
             
         count = int(request.POST.get('count'))
@@ -103,7 +103,7 @@ def editortables(request):
         for x in range(counttable):
             table = Table(count = count, smoke = smoke, window = window, restaurant = rest)
             table.save()
-        return render_to_response('restaurant/editortables.html',args)
+        return render(request, 'restaurant/editortables.html',args)
         
         
 
