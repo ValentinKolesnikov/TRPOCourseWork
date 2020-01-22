@@ -260,7 +260,7 @@ function SendOrder(){
   formData.append('date', dateorder.value);
   formData.append('table', tableorder.id);
   formData.append('time', timeorder.innerHTML);
-  formData.append('text', $('.order-card__offer')[0].value);
+  formData.append('text', $('.order-card__offer')[0].value?$('.order-card__offer')[0].value:" ");
   formData.append('restaurant', $('.order')[0].getAttribute('id'))
 
   var xhr = new XMLHttpRequest();
